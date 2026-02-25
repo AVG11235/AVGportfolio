@@ -46,3 +46,5 @@ Using the teaching classes we had I was able to learn how to make certain types 
 ## Overall 
 
 all these individual components and lessons helped me learn coding and technical resolve but  wish we practiced more coding itself as I feel with how specific it is, it's way too forgettable, and one mistake ruins the piece entirely, but a learned a nice byte.
+
+TEST
