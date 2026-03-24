@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The main code links
-description: not much here honestly (uses links)
+description: much here honestly (uses links)
 permalink: /final/code
 comments: true
 ---
