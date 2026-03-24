@@ -36,8 +36,18 @@ comments: true
 
 # Constructor Chaining
 
+[https://github.com/Open-Coding-Society/pages/blob/a6dcf4a5180df81e76d29a7f5a4de2ed3d5cef24/assets/js/GameEnginev1/essentials/Player.js#L19-L37](https://github.com/Open-Coding-Society/pages/blob/a6dcf4a5180df81e76d29a7f5a4de2ed3d5cef24/assets/js/GameEnginev1/essentials/Player.js#L19-L37)
+
+## Input/Output
+
+# Keyboard input
+
+[https://github.com/Open-Coding-Society/pages/blob/a6dcf4a5180df81e76d29a7f5a4de2ed3d5cef24/assets/js/GameEnginev1/essentials/Player.js#L44-L68](https://github.com/Open-Coding-Society/pages/blob/a6dcf4a5180df81e76d29a7f5a4de2ed3d5cef24/assets/js/GameEnginev1/essentials/Player.js#L44-L68)
+
+# Canvas Rendering
+
+[https://github.com/Open-Coding-Society/pages/blob/108ad092929c3dd4e23e558f03308ebf1cac7472/assets/js/platformer3x/Background.js#L45-L87](https://github.com/Open-Coding-Society/pages/blob/108ad092929c3dd4e23e558f03308ebf1cac7472/assets/js/platformer3x/Background.js#L45-L87)
+
+# GameEnv Configuration
+
 []()
-
-## Control Structures
-
-#
