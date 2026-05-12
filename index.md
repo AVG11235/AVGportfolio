@@ -29,13 +29,41 @@ Hi! My name is Mateo D.A.
 <br>
 ### Class Progress
 
-> Here is my progress through coding, click to see these online
+> Here is my progress through coding, click to see these online 
 
+I worked on levels 3 and 4 of the Red Riding Hood game they represent :
+
+Writing Classes	Create minimum 2 custom character classes extending base classes	Code review: Player.js, NPC.js, Enemy.js,
+Methods & Parameters	Implement methods with parameters (e.g., collisionHandler(other, direction))	Code review: Method signatures with 2+ parameters
+Instantiation & Objects	Instantiate game objects in GameLevel configuration	Code review: GameLevel setup objects
+Inheritance (Basic)	Create class hierarchy with 2+ levels (e.g., GameObject → Character → Player)	Code review: extends keyword, inheritance chain
+Method Overriding	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
+Constructor Chaining	Use super() to chain constructors	Code review: super(data, gameEnv) calls
+Control Structures	 	 
+Iteration	Use loops for game object arrays, animation frames	Code review: for, forEach, while loops
+Conditionals	Implement collision detection, state transitions	Code review: if/else, nested conditions
+Nested Conditions	Complex game logic (e.g., power-up + collision + direction)	Code review: Multi-level conditionals
+Data Types	 	 
+Numbers	Position, velocity, score tracking	Code review: Numeric properties
+Strings	Character names, sprite paths, game states	Code review: String manipulation
+
+<style>
+.btn-snake { background-color: #00FF00 !important; color: black !important; }
+.btn-snake:hover { background-color: #00DD00 !important; }
+.btn-fish { background-color: #3c1de8 !important; color: white !important; }
+.btn-fish:hover { background-color: #2f1599 !important; }
+.btn-squid { background-color: #b71dc5 !important; color: white !important; }
+.btn-squid:hover { background-color: #8f169a !important; }
+.btn-red { background-color: #FF0000 !important; color: white !important; }
+.btn-red:hover { background-color: #CC0000 !important; }
+</style>
 
 <div class="btn-group">
     <a href="{{site.baseurl}}/snake" class="btn btn-snake">Snake</a>
     <a href="{{site.baseurl}}/gamify/parallax" class="btn btn-fish">Fish</a>
     <a href="{{site.baseurl}}/gamify/water" class="btn btn-squid">Squid</a>
+    <a href="https://teamram.opencodingsociety.com/gamify/redridinghood" class="btn btn-red">Red Riding Hood</a>
+    
 </div>
 
 <br>

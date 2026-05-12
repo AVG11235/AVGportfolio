@@ -287,9 +287,11 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.btn-snake { background-color: #00FF00; color: black; }
-.btn-snake:hover { background-color: #00DD00; }
-.btn-fish { background-color: #3c1de8; color: white; }
-.btn-fish:hover { background-color: #2f1599; }
-.btn-squid { background-color: #b71dc5; color: white; }
-.btn-squid:hover { background-color: #8f169a; }
+.btn-snake { background-color: #00FF00 !important; color: black !important; }
+.btn-snake:hover { background-color: #00DD00 !important; }
+.btn-fish { background-color: #3c1de8 !important; color: white !important; }
+.btn-fish:hover { background-color: #2f1599 !important; }
+.btn-squid { background-color: #b71dc5 !important; color: white !important; }
+.btn-squid:hover { background-color: #8f169a !important; }
+.btn-red { background-color: #FF0000 !important; color: white !important; }
+.btn-red:hover { background-color: #CC0000 !important; }
