@@ -256,3 +256,40 @@ a {
 .icon__settings:hover {
     color: var(--primary);
 }
+
+/* Class Progress Buttons */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-group .btn {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4rem;
+    line-height: 1;
+    vertical-align: middle;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-group .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-snake { background-color: #00FF00; color: black; }
+.btn-snake:hover { background-color: #00DD00; }
+.btn-fish { background-color: #3c1de8; color: white; }
+.btn-fish:hover { background-color: #2f1599; }
+.btn-squid { background-color: #b71dc5; color: white; }
+.btn-squid:hover { background-color: #8f169a; }
