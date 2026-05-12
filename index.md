@@ -56,6 +56,8 @@ Strings	Character names, sprite paths, game states	Code review: String manipulat
 .btn-squid:hover { background-color: #8f169a !important; }
 .btn-red { background-color: #FF0000 !important; color: white !important; }
 .btn-red:hover { background-color: #CC0000 !important; }
+.btn-paragraph { background-color: #7a0085ff !important; color: white !important; }
+.btn-paragraph:hover { background-color: #5500ddff !important; }
 </style>
 
 <div class="btn-group">
@@ -63,7 +65,7 @@ Strings	Character names, sprite paths, game states	Code review: String manipulat
     <a href="{{site.baseurl}}/gamify/parallax" class="btn btn-fish">Fish</a>
     <a href="{{site.baseurl}}/gamify/water" class="btn btn-squid">Squid</a>
     <a href="https://teamram.opencodingsociety.com/gamify/redridinghood" class="btn btn-red">Red Riding Hood</a>
-    
+    <a href="{{site.baseurl}}/paragraph" class="btn btn-paragraph">Paragraph</a>
 </div>
 
 <br>
