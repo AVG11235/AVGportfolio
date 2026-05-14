@@ -47,6 +47,8 @@ Data Types
 Numbers	Position, velocity, score tracking	Code review: Numeric properties
 Strings	Character names, sprite paths, game states	Code review: String manipulation
 
+And more which you'll find detailed in FINAL DETAILS
+
 <style>
 .btn-snake { background-color: #00FF00 !important; color: black !important; }
 .btn-snake:hover { background-color: #00DD00 !important; }
@@ -65,7 +67,7 @@ Strings	Character names, sprite paths, game states	Code review: String manipulat
     <a href="{{site.baseurl}}/gamify/parallax" class="btn btn-fish">Fish</a>
     <a href="{{site.baseurl}}/gamify/water" class="btn btn-squid">Squid</a>
     <a href="https://teamram.opencodingsociety.com/gamify/redridinghood" class="btn btn-red">Red Riding Hood</a>
-    <a href="{{site.baseurl}}/paragraph" class="btn btn-paragraph">Paragraph</a>
+    <a href="{{site.baseurl}}/finale" class="btn btn-paragraph">Final Details</a>
 </div>
 
 <br>
