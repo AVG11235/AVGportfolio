@@ -72,11 +72,19 @@ API Error Handling	Try/catch blocks for API calls, network error handling	Code r
 
 <a id="writer"></a>
 
-## Writing Classes
+## <font color="yellow"> Writing Classes </font>
 
-Writing classes means litterally just making a class, the was litterally seen here, *bullet.js* and here **, and in many more places, I'd be suprised if you made a game with 1 or no classes at all failing this objective spectacularly! 
+Writing classes means litterally just making a class, the was litterally seen in, *bullet.js*  and here **,
+ <div class="image-gallery">
+  <img src="{{site.baseurl}}/images/final-images/bullet-class.png" alt="Image 1">
+  <img src="{{site.baseurl}}/images/final-images/shooterplayer-class.png" alt="Image 2">
+</div> 
+and in many more places, I'd be suprised if you made a game with 1 or no classes at all failing this objective spectacularly! Overall classes don't just cover the constructor the cover 90% of these .js files look how little there is after the end of the bullet.js class that isn't class code (it's what's there after the yellow })
+<div class="image-gallery">
+  <img src="{{site.baseurl}}/images/final-images/bullet-class-end.png" alt="Image 3">
 
 
 <a id="meth"></a>
 
-## Methods & Parameters
+## <font color="blue"> Methods & Parameters  </font>\
+
