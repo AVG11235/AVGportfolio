@@ -82,9 +82,9 @@ Writing classes means litterally just making a class, the was litterally seen in
 and in many more places, I'd be suprised if you made a game with 1 or no classes at all failing this objective spectacularly! Overall classes don't just cover the constructor the cover 90% of these .js files look how little there is after the end of the bullet.js class that isn't class code (it's what's there after the yellow })
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/bullet-class-end.png" alt="Image 3">
-
+</div>
 
 <a id="meth"></a>
 
-## <font color="blue"> Methods & Parameters  </font>\
+## <font color="blue"> Methods & Parameters </font>
 
