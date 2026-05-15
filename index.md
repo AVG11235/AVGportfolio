@@ -31,8 +31,6 @@ Hi! My name is Mateo D.A.
 
 > Here is my progress through coding, click to see these online 
 
-I worked on levels 3 and 4 of the Red Riding Hood game they represent most if not all the rubric objectives which you'll find detailed in FINAL DETAILS! playable in RED RIDING HOOD! and found in gamerunner format in GAMERUNNER STYLE VERSION!
-
 <style>
 .btn-snake { background-color: #00FF00 !important; color: black !important; }
 .btn-snake:hover { background-color: #00DD00 !important; }
@@ -52,6 +50,15 @@ I worked on levels 3 and 4 of the Red Riding Hood game they represent most if no
     <a href="{{site.baseurl}}/snake" class="btn btn-snake">Snake</a>
     <a href="{{site.baseurl}}/gamify/parallax" class="btn btn-fish">Fish</a>
     <a href="{{site.baseurl}}/gamify/water" class="btn btn-squid">Squid</a>
+</div>
+
+<br>
+
+### College Final Buttons
+
+>I worked on levels 3 and 4 of the Red Riding Hood game they represent most if not all the rubric objectives which you'll find detailed in FINAL DETAILS! playable in RED RIDING HOOD! and found in gamerunner format in GAMERUNNER STYLE VERSION!
+
+<div class="btn-group">
     <a href="https://teamram.opencodingsociety.com/gamify/redridinghood" class="btn btn-red">Red Riding Hood</a>
     <a href="{{site.baseurl}}/finale" class="btn btn-paragraph">Final Details</a>
     <a href="https://rashig-1804.opencodingsociety.com/red-riding" class="btn btn-panel">Gamerunner Style Version</a>

@@ -10,7 +10,7 @@ permalink: /finale/
 
 Fun thing to note most of the rubric rules require you too review the code of the game, I believe most if not all code requirements have been met so to make it easier for you to read them and for me to double check I'm gonna list up each code requirement and connect it to a section of my game's code with a neat little description as well, so here's a table of links across this page that make it easy to go to any wanted rubric requirement instantaneously:
 
-Object-Oriented Programming	
+### Object-Oriented Programming	
 
 * [Writing Classes](#writer),	Create minimum 2 custom character classes extending base classes	Code review: Player.js, NPC.js, Enemy.js, 
 * [Methods & Parameters](#meth),	Implement methods with parameters (e.g., collisionHandler(other, direction))	Code review: Method signatures with 2+ parameters
@@ -19,13 +19,13 @@ Inheritance (Basic),	Create class hierarchy with 2+ levels (e.g., GameObject →
 Method Overriding,	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 Constructor Chaining,	Use super() to chain constructors	Code review: super(data, gameEnv) calls
 
-Control Structures
+### Control Structures
 
 Iteration,	Use loops for game object arrays, animation frames	Code review: for, forEach, while loops
 Conditionals,	Implement collision detection, state transitions	Code review: if/else, nested conditions
 Nested Conditions,	Complex game logic (e.g., power-up + collision + direction)	Code review: Multi-level conditionals
 
-Data Types
+### Data Types
 
 Numbers,	Position, velocity, score tracking	Code review: Numeric properties
 Strings,	Character names, sprite paths, game states	Code review: String manipulation
@@ -70,6 +70,9 @@ Integration Testing	Test API integration (Leaderboard, NPC AI) with live backend
 API Error Handling	Try/catch blocks for API calls, network error handling	Code review: Error handling for fetch failures
 
 
+>Lastly, the rubric objectives will be separated across pages depending on their category so here on the first of these pages that link to each other, the first category we will cover is ... OBJECT-ORIENTED PROGRAMMING!!!
+
+
 <a id="writer"></a>
 
 ## <font color="yellow"> Writing Classes </font>
@@ -88,3 +91,15 @@ and in many more places, I'd be suprised if you made a game with 1 or no classes
 
 ## <font color="blue"> Methods & Parameters </font>
 
+
+
+<style>
+.btn-controlstructures { background-color: #100977ff !important; color: white !important; }
+.btn-controlstructures:hover { background-color: #461ff3ff !important; }
+</style>
+
+<div class="btn-group">
+    <a href="{{site.baseurl}}/finale/controlstructures" class="btn btn-controlstructures">Control Structures</a>
+</div>
+
+<br>
