@@ -19,7 +19,7 @@ description: "Class of 2026"
 owner_name: Mateo Durand
 github_username: AVG11235 
 github_repo: "AVGportfolio" 
-baseurl: "/AVGportfolio" 
+baseurl: "" 
 future: true
 
 # Build settings
