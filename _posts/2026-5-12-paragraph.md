@@ -14,7 +14,7 @@ Fun thing to note most of the rubric rules require you too review the code of th
 
 * [Writing Classes](#writer),	Create minimum 2 custom character classes extending base classes	Code review: Player.js, NPC.js, Enemy.js, 
 * [Methods & Parameters](#meth),	Implement methods with parameters (e.g., collisionHandler(other, direction))	Code review: Method signatures with 2+ parameters
-Instantiation & Objects,	Instantiate game objects in GameLevel configuration	Code review: GameLevel setup objects
+* [Instantiation & Objects](#instant),	Instantiate game objects in GameLevel configuration	Code review: GameLevel setup objects
 Inheritance (Basic),	Create class hierarchy with 2+ levels (e.g., GameObject → Character → Player)	Code review: extends keyword, inheritance chain
 Method Overriding,	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 Constructor Chaining,	Use super() to chain constructors	Code review: super(data, gameEnv) calls
@@ -98,11 +98,19 @@ Methods and Parameters covers stuff like handlers and although there are uses of
   <img src="{{site.baseurl}}/images/final-images/enpeecee-handler-clean.png" alt="Image 5">
 </div> 
 
-<a id=""></a>
+<a id="instant"></a>
 
 ## <font color="red"> Instantiation & Objects </font> 
 
+For this segment Instantiation and objects covers how gamelevel's in the game engine set up objects in the game like characters, background areas, collisions, coins, bullets, etc. which for example can be seen here: in the class of Game Object constructor it sets up creates and instances which are used and applied in other parts of game object throughout all "Game Object"'s.
 
+<div class="image-gallery">
+  <img src="{{site.baseurl}}/images/final-images/game-object-create.png" alt="Image 6">
+</div> 
+
+<a id=""></a>
+
+## <font color="green">  </font>
 
 <style>
 .btn-controlstructures { background-color: #100977ff !important; color: white !important; }
