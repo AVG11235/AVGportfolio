@@ -91,6 +91,17 @@ and in many more places, I'd be suprised if you made a game with 1 or no classes
 
 ## <font color="blue"> Methods & Parameters </font>
 
+Methods and Parameters covers stuff like handlers and although there are uses of "handle"'s in level3.js, the only 2 times "handler" appears in my custom code (it may also be in player.js) is in the variant version I made of Npc.js called enpeecee.js which has slightly different styles of functions while keeping the original Npc.js available for other use, here they are, one for he destroy function, and the other for clean up work!
+
+ <div class="image-gallery">
+  <img src="{{site.baseurl}}/images/final-images/enpeecee-handler.png" alt="Image 4">
+  <img src="{{site.baseurl}}/images/final-images/enpeecee-handler-clean.png" alt="Image 5">
+</div> 
+
+<a id=""></a>
+
+## <font color="red"> Instantiation & Objects </font> 
+
 
 
 <style>
