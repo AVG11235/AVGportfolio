@@ -19,22 +19,13 @@ Fun thing to note most of the rubric rules require you too review the code of th
 * [Method Overriding](#method),	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 * [Constructor Chaining](#construct),	Use super() to chain constructors	Code review: super(data, gameEnv) calls
 
-
-### Data Types
-
-Numbers,	Position, velocity, score tracking	Code review: Numeric properties
-Strings,	Character names, sprite paths, game states	Code review: String manipulation
-Booleans,	Flags (isJumping, isPaused, isVulnerable)	Code review: Boolean logic
-Arrays, 	Game object collections, level data	Code review: Array operations
-Objects (JSON), 	Configuration objects, sprite data	Code review: Object literals
-
-Operators
+### Operators
 
 Mathematical,	Physics calculations (gravity, velocity, collision)	Code review: +, -, *, / in physics
 String Operations,	Path concatenation, text display	Code review: Template literals, concatenation
 Boolean Expressions,	Compound conditions in game logic	Code review: &&, ||, !
 
-Input/Output
+### Input/Output
 
 Keyboard Input	Arrow keys, space, WASD controls using event listeners	Testing: Key event handlers respond correctly
 Canvas Rendering	Draw sprites, backgrounds, platforms using Canvas API	Code review: draw() method implementations
@@ -43,13 +34,13 @@ API Integration	Implement Leaderboard API (POST/GET scores)	Code review: Fetch c
 Asynchronous I/O	Use async/await or promises for API calls	Code review: async/await or .then() chains
 JSON Parsing	Parse API responses (leaderboard data, AI responses)	Code review: JSON.parse(), object destructuring
 
-Documentation	 	 
+### Documentation	 	 
 
 Code Comments,	JSDoc comments for classes and methods	Code review: Comment density >10%
 Mini-Lesson Documentation,	Create comic/visual post with embedded runtime game demo	Portfolio review: Mini-lesson in personal portfolio
 Code Highlights,	Annotate key code snippets in documentation (OOP, APIs, collision)	Portfolio review: Highlighted code examples with explanations
 
-Debugging
+### Debugging
 
 Console Debugging,	Use console.log to track game state, variables, method calls	Code review: Strategic logging in update/collision methods
 Hit Box Visualization,	Draw/visualize collision boundaries to refine detection	Demo: Toggle hit box display, adjust collision rectangles
@@ -58,7 +49,7 @@ Network Debugging,	Examine Network tab for API calls, CORS errors, response stat
 Application Debugging,	Examine cookies, localStorage, session data for login/state	Demo: Application tab inspection of stored data
 Element Inspection,	Use Element Viewer to inspect canvas, DOM elements, styles	Demo: Inspect element properties and game object state
 
-Testing & Verification
+### Testing & Verification
 
 Gameplay Testing	Test level completion, character interactions, collision detection	Live demo: Play through level without critical bugs
 Integration Testing	Test API integration (Leaderboard, NPC AI) with live backend	Demo: Successful score saving and AI responses
@@ -143,6 +134,41 @@ The correct subclass version runs at runtime.
   <img src="{{site.baseurl}}/images/final-images/game-object-handle-2.png" alt="Image 18">
   <img src="{{site.baseurl}}/images/final-images/game-object-handle-3.png" alt="Image 19">
 </div> 
+
+(ooh look "override" in player.js!, 146 to 175!)
+
+```
+   /**
+     * Overrides the reaction to the collision to handle
+     *  - clearing the pressed keys array
+     *  - stopping the player's velocity
+     *  - updating the player's direction   
+     * @param {*} other - The object that the player is colliding with
+     */
+    handleCollisionReaction(other) {    
+        // Do NOT clear pressed keys; keep walking animation active
+        // Halt movement by zeroing velocity along collision axis
+
+        // Avoid DOM-based push-out; rely on velocity zeroing only
+            // Do NOT clear pressed keys; keep walking animation active
+            // Halt movement by zeroing velocity along the touched axes; avoid DOM-based push-out
+            try {
+                const touchPoints = this.collisionData?.touchPoints?.this;
+                if (touchPoints) {
+                    // Horizontal block
+                    if (touchPoints.left || touchPoints.right) {
+                        this.velocity.x = 0;
+                    }
+                    // Vertical block
+                    if (touchPoints.top || touchPoints.bottom) {
+                        this.velocity.y = 0;
+                    }
+                }
+            } catch (_) {}
+
+        super.handleCollisionReaction(other);
+    }
+```
 
 <a id="construct"></a>
 
