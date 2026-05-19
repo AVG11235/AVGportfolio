@@ -298,3 +298,5 @@ a {
 .btn-paragraph:hover { background-color: #5500ddff !important; }
 .btn-datatypes { background-color: #881010ff !important; color: white !important; }
 .btn-datatypes:hover { background-color: #bb2e2eff !important; }
+.btn-operators { background-color: rgb(102, 16, 136) !important; color: white !important; }
+.btn-operators:hover { background-color: rgb(187, 46, 145) !important; }

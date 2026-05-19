@@ -316,6 +316,195 @@ grandma enpeecee code in level3.js:
 
 Booleans covers boolean logic like flags for stuff like player states (like maybe a cooldown in my case), which for me can be seen in , as seen below:
 
+bullet.js constructor code:
 ```
+class Bullet {
+    constructor(data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.velocity = data.velocity || { x: 0, y: 0 };
+        this.gameEnv = data.gameEnv;
+        this.shooter = data.shooter;
+        this.direction = data.direction || 'down'; // down, left, right, up
+        this.width = 40;
+        this.height = 40;
+        this.lifetime = 10000; // 10 seconds
+        this.creationTime = Date.now();
+        this.destroyed = false;
+        this.isVisible = true;
+        this.frameIndex = 0;
+        this.frameCounter = 0;
+        this.animationRate = 3;
+    }
+```
+level3.js const code:
+```
+        const sprite_src_red = path + "/images/gamify/Finalred.png";
+        const sprite_data_red = {
+            id: 'RedRidingHood',
+            greeting: "Red Riding Hood - Press Q to shoot!",
+            src: path + "/images/gamify/Finalred.png",
+            SCALE_FACTOR: 6,
+            STEP_FACTOR: 800,
+            ANIMATION_RATE: 50,
+            INIT_POSITION: { x: width / 2 - 50, y: height - 100 },
+            pixels: { height: 144, width: 192 },
+            orientation: { rows: 3, columns: 4 },
+            down: { row: 0, start: 0, columns: 3 },
+            left: { row: 1, start: 0, columns: 3 },
+            right: { row: 2, start: 0, columns: 3 },
+            up: { row: 3, start: 0, columns: 3 },
+            hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+            keypress: { up: 87, left: 65, down: 83, right: 68 },
+            shootCooldown: 500
+        };
+```
+shooterplayer.js cooldown code:
+```
+class ShooterPlayer extends Player {
+    constructor(data, gameEnv) {
+        super(data, gameEnv); // Calls the original Player constructor
+        this.bullets = [];
+        this.shootCooldown = data.shootCooldown || 500; // milliseconds between shots
+        this.lastShotTime = 0;
+        this.facing = 'up'; // Default facing direction
+    }
+
+    update() {
+        super.update(); // Keep the top-down movement logic
+
+        // Update facing direction based on movement
+        if (this.velocity.x > 0) this.facing = 'right';
+        else if (this.velocity.x < 0) this.facing = 'left';
+        else if (this.velocity.y > 0) this.facing = 'down';
+        else if (this.velocity.y < 0) this.facing = 'up';
+
+        // Fix diagonal movement animation issue by ensuring direction matches sprite data
+        // Map diagonal directions to their base directions for proper animation
+        if (this.direction === 'upLeft') this.direction = 'left';
+        else if (this.direction === 'upRight') this.direction = 'right';
+        else if (this.direction === 'downLeft') this.direction = 'left';
+        else if (this.direction === 'downRight') this.direction = 'right';
+
+        // Check for Q key press to shoot
+        if (this.pressedKeys[81]) { // Q key
+            this.shoot();
+        }
+
+        // Update bullets
+        this.updateBullets();
+    }
+
+    shoot() {
+        const currentTime = Date.now();
+        if (currentTime - this.lastShotTime < this.shootCooldown) return;
+
+        this.lastShotTime = currentTime;
+
+        // Create bullet data based on facing direction
+        let velocity = { x: 0, y: 0 };
+        switch (this.facing) {
+            case 'up': velocity.y = -6; break;
+            case 'down': velocity.y = 6; break;
+            case 'left': velocity.x = -6; break;
+            case 'right': velocity.x = 6; break;
+        }
 
 ```
+
+<a id="arr"> </a>
+
+### <font color="red"> Arrays </font>
+
+arrays represent collections of "memory" usong brackets [], which I see here
+
+level3.js grandma dialogue code:
+```
+            interactionRadius: 400, // Interaction area (now half the previous size)
+            dialogues: ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"],
+            // Use reaction property to trigger dialogue on collision
+            reaction: function() {
+                if (!this.grandma) this.grandma = grandmaRef;
+                if (this.grandma && this.grandma.showReactionDialogue) {
+                    // Update dialogue based on wolf defeat status
+                    if (this.enemyDefeated) {
+                        this.grandma.dialogueSystem.dialogues = ["Now, that's the girl I partially raised!!!"];
+                    } else {
+                        this.grandma.dialogueSystem.dialogues = ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"];
+                    }
+                    this.grandma.showReactionDialogue();
+                }
+            }.bind(this)
+        };
+```
+shooterplayer.js constructor code:
+```
+class ShooterPlayer extends Player {
+    constructor(data, gameEnv) {
+        super(data, gameEnv); // Calls the original Player constructor
+        this.bullets = [];
+        this.shootCooldown = data.shootCooldown || 500; // milliseconds between shots
+        this.lastShotTime = 0;
+        this.facing = 'up'; // Default facing direction
+    }
+```
+shooterplayer.js update code (this covers something very array esq dictation of the q button):
+
+```
+   // Check for Q key press to shoot
+        if (this.pressedKeys[81]) { // Q key
+            this.shoot();
+        }
+``` 
+enpeecee.js showreactiondialogue function code (const):
+```
+ showReactionDialogue() {
+        if (!this.dialogueSystem) return;
+
+        const npcName = this.spriteData?.id || "";
+        const npcAvatar = this.spriteData?.src || null;
+
+        const dialogue = this.dialogueSystem?.dialogues?.[0] || this.spriteData?.dialogues?.[0] || this.spriteData?.greeting || "Hello!";
+        if (this.spriteData?.greeting === false && !this.spriteData?.dialogues?.length) {
+            console.log("Greeting set to false and no dialogue entries provided!")
+            return;
+        }
+        this.dialogueSystem.showDialogue(dialogue, npcName, npcAvatar, this.spriteData);
+    }    
+```
+
+<a id="obj"> </a>
+
+### <font color="Blue"> Object JSON </font>
+
+Object Literals are JavaScript code. Keys do not require quotes (unless they contain special characters or spaces), they can hold functions and methods, and trailing commas are allowed.JSON is a strict data-interchange format (string format). Keys must be wrapped in double quotes, functions are prohibited, and trailing commas are forbidden.
+
+Classic using {} and making a list of categories and values which can be seen below:
+
+(used first half of level3.js const grandma code)
+
+```
+const grandmaData = {
+            id: 'Grandma',
+            src: path + "/images/gamify/lrrh-lvl3-grandma.png",
+            SCALE_FACTOR: 6, // Shrink canvas (ie grandma and interaction physical box)
+            STEP_FACTOR: 1000,
+            ANIMATION_RATE: 50,
+            INIT_POSITION: { x: 50, y: 150 },
+            pixels: { height: 480, width: 480 },
+            orientation: { rows: 1, columns: 1 },
+            down: { row: 0, start: 0, columns: 1 },
+            interactionRadius: 400, // Interaction area (now half the previous size)
+            dialogues: ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"],
+```
+
+<style>
+.btn-operators { background-color: rgb(102, 16, 136) !important; color: white !important; }
+.btn-operators:hover { background-color: rgb(187, 46, 145) !important; }
+</style>
+
+<div class="btn-group">
+    <a href="{{site.baseurl}}/finale/operators" class="btn btn-operators">Operators</a>
+</div>
+
+<br>

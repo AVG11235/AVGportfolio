@@ -19,12 +19,6 @@ Fun thing to note most of the rubric rules require you too review the code of th
 * [Method Overriding](#method),	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 * [Constructor Chaining](#construct),	Use super() to chain constructors	Code review: super(data, gameEnv) calls
 
-### Operators
-
-Mathematical,	Physics calculations (gravity, velocity, collision)	Code review: +, -, *, / in physics
-String Operations,	Path concatenation, text display	Code review: Template literals, concatenation
-Boolean Expressions,	Compound conditions in game logic	Code review: &&, ||, !
-
 ### Input/Output
 
 Keyboard Input	Arrow keys, space, WASD controls using event listeners	Testing: Key event handlers respond correctly
