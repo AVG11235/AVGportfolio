@@ -300,3 +300,5 @@ a {
 .btn-datatypes:hover { background-color: #bb2e2eff !important; }
 .btn-operators { background-color: rgb(102, 16, 136) !important; color: white !important; }
 .btn-operators:hover { background-color: rgb(187, 46, 145) !important; }
+.btn-inputoutput { background-color: rgba(122, 221, 191, 1) !important; color: white !important; }
+.btn-inputoutput:hover { background-color: rgba(0, 255, 179, 1) !important; }

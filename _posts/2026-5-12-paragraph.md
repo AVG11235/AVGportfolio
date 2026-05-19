@@ -19,14 +19,7 @@ Fun thing to note most of the rubric rules require you too review the code of th
 * [Method Overriding](#method),	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 * [Constructor Chaining](#construct),	Use super() to chain constructors	Code review: super(data, gameEnv) calls
 
-### Input/Output
 
-Keyboard Input	Arrow keys, space, WASD controls using event listeners	Testing: Key event handlers respond correctly
-Canvas Rendering	Draw sprites, backgrounds, platforms using Canvas API	Code review: draw() method implementations
-GameEnv Configuration	Set canvas size, difficulty levels, game settings	Code review: GameEnv.create() and GameSetup.js
-API Integration	Implement Leaderboard API (POST/GET scores)	Code review: Fetch calls with error handling
-Asynchronous I/O	Use async/await or promises for API calls	Code review: async/await or .then() chains
-JSON Parsing	Parse API responses (leaderboard data, AI responses)	Code review: JSON.parse(), object destructuring
 
 ### Documentation	 	 
 
