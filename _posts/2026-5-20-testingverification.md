@@ -222,5 +222,6 @@ search_exclude: true
 
 <br>
 
+>If you want to know the way I solved API errors, what happens is I work and update in bits so when I realise the page doesn't work, I go back to a previous bit of work and try to rewrite it to have the game work again, and I repeat this if it still doesn't work or move on if it does work. 
 
 That's all!!!!
