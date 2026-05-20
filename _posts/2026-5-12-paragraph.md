@@ -34,7 +34,7 @@ Writing classes means litterally just making a class, the was litterally seen in
         Player.playerCount = (Player.playerCount || 0) + 1;eurl}}/images/final-images/bullet-class.png" alt="Image 1">
   <img src="{{site.baseurl}}/images/final-images/shooterplayer-class.png" alt="Image 2">
 </div> 
-and in many more places, I'd be suprised if you made a game with 1 or no classes at all failing this objective spectacularly! Overall classes don't just cover the constructor the cover 90% of these .js files look how little there is after the end of the bullet.js class that isn't class code (it's what's there after the yellow })
+and in many more places, I'd be suprised if you made a game with 1 or no classes at all failing this objective spectacularly! Overall classes don't just cover the constructor, they cover 90% of these .js files look how little there is after the end of the bullet.js class that isn't class code (it's what's there after the yellow })
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/bullet-class-end.png" alt="Image 3">
 </div>
@@ -50,6 +50,89 @@ Methods and Parameters covers stuff like handlers and although there are uses of
   <img src="{{site.baseurl}}/images/final-images/enpeecee-handler-clean.png" alt="Image 5">
 </div> 
 
+>more examples of methods and parameters
+
+```
+   update() {
+        if (this.gameOver) return;
+
+        // Get player from game objects (created by GameLevel system)
+        const player = this.gameEnv.gameObjects.find(obj => obj instanceof ShooterPlayer);
+        if (!player) return;
+
+        // Spawn enemies every 3 seconds
+        const currentTime = Date.now();
+        if (currentTime - this.lastSpawnTime > this.enemySpawnRate) {
+            this.spawnEnemy();
+            this.lastSpawnTime = currentTime;
+        }
+
+        // Update enemies and remove expired ones
+        this.enemies.forEach((enemy, index) => {
+            enemy.update();
+            // Remove enemy after 5 seconds if not shot
+            if (currentTime - enemy.spawnTime > this.enemyLifetime) {
+                enemy.destroy();
+                this.enemies.splice(index, 1);
+            }
+        });
+
+        // Check bullet collisions with enemies
+        player.bullets.forEach(bullet => {
+            this.enemies.forEach((enemy, enemyIndex) => {
+                if (bullet.checkCollision(enemy)) {
+                    // Create hit marker at enemy position
+                    const hitMarker = new HitMarker(
+                        enemy.x + enemy.width / 2, // Center of enemy
+                        enemy.y, // Top of enemy
+                        this.gameEnv
+                    );
+                    this.gameEnv.gameObjects.push(hitMarker);
+
+                    // Create explosion at enemy position
+                    const explosion = new Explosion(
+                        enemy.x + enemy.width / 2,
+                        enemy.y + enemy.height / 2,
+                        this.gameEnv
+                    );
+                    this.gameEnv.gameObjects.push(explosion);
+
+                    // Enemy defeated!
+                    bullet.destroy();
+                    enemy.destroy();
+                    this.enemies.splice(enemyIndex, 1);
+                    this.score++;
+                    this.scoreDisplay.textContent = `Wolves Eliminated: ${this.score}`;
+                }
+            });
+        });
+```
+```
+    update() {
+        this.draw();
+        this.collisionChecks();
+        this.move();
+    }
+```
+```
+    draw() {
+        // Clear the canvas before drawing
+        this.clearCanvas();
+
+        if (this.spriteSheet) {
+            // Draw the sprite sheet frame
+            this.drawSprite();
+            // Update the frame index for animation
+            this.updateAnimationFrame();
+        } else {
+            // Draw default red square
+            this.drawDefaultSquare();
+        }
+
+        // Set up the canvas dimensions and styles
+        this.setupCanvas();
+    }
+```
 <a id="instant"></a>
 
 ## <font color="red"> Instantiation & Objects </font> 
