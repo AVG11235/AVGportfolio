@@ -20,9 +20,16 @@ Yeah I can show you my 2 levels, they work well, they'll be another link to the 
 
 <a id="intes"> </a>
 
-## <font color="purple"> Integration Testion </font>
+## <font color="purple"> Integration Testing </font>
 
 an AI npc and leaderboard was done by Rashi but it doesn't work too well on my computer from tests
+
+<div class="image-gallery">
+  <img src="{{site.baseurl}}/images/final-images/lead.png" alt="Image 37">
+  <img src="{{site.baseurl}}/images/final-images/AI.png" alt="Image 38">
+
+</div>
+
 
 <a id="APIEH"> </a>
 
