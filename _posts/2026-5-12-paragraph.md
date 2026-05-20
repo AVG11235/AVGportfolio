@@ -21,11 +21,7 @@ Fun thing to note most of the rubric rules require you too review the code of th
 
 
 
-### Documentation	 	 
 
-Code Comments,	JSDoc comments for classes and methods	Code review: Comment density >10%
-Mini-Lesson Documentation,	Create comic/visual post with embedded runtime game demo	Portfolio review: Mini-lesson in personal portfolio
-Code Highlights,	Annotate key code snippets in documentation (OOP, APIs, collision)	Portfolio review: Highlighted code examples with explanations
 
 ### Debugging
 
