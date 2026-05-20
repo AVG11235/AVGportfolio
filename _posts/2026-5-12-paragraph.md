@@ -19,26 +19,6 @@ Fun thing to note most of the rubric rules require you too review the code of th
 * [Method Overriding](#method),	Override parent methods (update(), draw(), handleCollision())	Code review: Polymorphic implementations
 * [Constructor Chaining](#construct),	Use super() to chain constructors	Code review: super(data, gameEnv) calls
 
-
-
-
-
-### Debugging
-
-Console Debugging,	Use console.log to track game state, variables, method calls	Code review: Strategic logging in update/collision methods
-Hit Box Visualization,	Draw/visualize collision boundaries to refine detection	Demo: Toggle hit box display, adjust collision rectangles
-Source-Level Debugging,	Set breakpoints in DevTools, step through code execution	Demo: Use Sources tab to pause and inspect code flow
-Network Debugging,	Examine Network tab for API calls, CORS errors, response status	Demo: Inspect fetch requests, response data, error messages
-Application Debugging,	Examine cookies, localStorage, session data for login/state	Demo: Application tab inspection of stored data
-Element Inspection,	Use Element Viewer to inspect canvas, DOM elements, styles	Demo: Inspect element properties and game object state
-
-### Testing & Verification
-
-Gameplay Testing	Test level completion, character interactions, collision detection	Live demo: Play through level without critical bugs
-Integration Testing	Test API integration (Leaderboard, NPC AI) with live backend	Demo: Successful score saving and AI responses
-API Error Handling	Try/catch blocks for API calls, network error handling	Code review: Error handling for fetch failures
-
-
 >Lastly, the rubric objectives will be separated across pages depending on their category so here on the first of these pages that link to each other, the first category we will cover is ... OBJECT-ORIENTED PROGRAMMING!!!
 
 

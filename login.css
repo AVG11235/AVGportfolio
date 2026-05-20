@@ -304,3 +304,7 @@ a {
 .btn-inputoutput:hover { background-color: rgba(0, 255, 179, 1) !important; }
 .btn-documentation { background-color: #98ff22ff !important; color: white !important; }
 .btn-documentation:hover { background-color: #2db112ff !important; }
+.btn-debugging { background-color: #92245bff !important; color: white !important; }
+.btn-debugging:hover { background-color: #b112b1ff !important; }
+.btn-testingverification { background-color: #2b0091ff !important; color: white !important; }
+.btn-testingverification:hover { background-color: #0017e4ff !important; }

@@ -1,8 +1,8 @@
 ---
 toc: false 
 layout: post
-title: Input/Output
-description: 3 left after this 
+title: Documentation
+description: 2 left after this 
 permalink: /finale/documentation/
 ---
 
@@ -161,3 +161,20 @@ lastly-ish this code covers the if part of the statement as, if the enemy is def
 
 ## <font color="gray"> Code Highlights </font>
 
+the main content of code highlights is to specify parts of code using annotations, in which you will look at (OOP, APIs, collision)
+```
+// like this and that
+```
+
+<br>
+
+<style>
+.btn-debugging { background-color: #92245bff !important; color: white !important; }
+.btn-debugging:hover { background-color: #b112b1ff !important; }
+</style>
+
+<div class="btn-group">
+    <a href="{{site.baseurl}}/finale/debugging" class="btn btn-debugging">Debugging</a>
+</div>
+
+<br>
