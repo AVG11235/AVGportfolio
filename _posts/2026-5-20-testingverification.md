@@ -74,8 +74,42 @@ Use code with caution.Best Practices for ImplementationTo build resilient and de
 }
 Use code with caution.Code Review Checklist for Error HandlingWhen reviewing code for Fetch API failures, check for these critical items:Is response.ok checked? If the code only uses .then().catch(), it is likely ignoring 404/500 errors.Are errors swallowed? Ensure the catch block doesn't just log the error; it should ideally update the UI to inform the user or report it to a service like Sentry.Is the message user-friendly? Technical details like stack traces should be logged for developers but hidden from users.Are specific errors handled? Check if different actions are taken for specific codes (e.g., redirecting on a 401 Unauthorized).Is a timeout implemented? Standard fetch doesn't have a default timeout; verify if an AbortController is used for long-running requests.
 
-this appears in the file(s): 404.html
+this appears in the file(s): 404.html, leaderboard.js
 
+
+```
+        console.log('Payload:', JSON.stringify(requestBody));
+
+        // POST to backend using API chaining pattern
+        return fetch(
+            url,
+            {
+                ...fetchOptions,
+                method: 'POST',
+                body: JSON.stringify(requestBody)
+            }
+        )
+            .then(res => {
+                if (!res.ok) {
+                    return res.text().then(errorText => {
+                        console.error('Server error:', errorText);
+                        throw new Error(`Failed to save score: ${res.status} - ${errorText}`);
+                    });
+                }
+                return res.json();
+            })
+            .then(savedEntry => {
+                console.log('Score saved successfully to SCORE_COUNTER:', savedEntry);
+
+                // Refresh leaderboard if we're in dynamic mode
+                if (this.mode === 'dynamic') {
+                    return this.fetchLeaderboard().then(() => savedEntry);
+                }
+
+                return savedEntry;
+            });
+    }
+```
 ```
 ---
 permalink: /404.html
@@ -211,7 +245,6 @@ search_exclude: true
     <p class="output">You can try to go back or <a href="{{site.baseurl}}/">return to the homepage</a>.</p>
 </div>
 ```
-
 
 <br>
 
