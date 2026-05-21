@@ -39,26 +39,6 @@ this covers, the systematic process of identifying, intercepting, and resolving 
 
 so the code gives a result, a failure result to tell you it's not working so you can better know what to solve
 
->Standard Implementation PatternTo handle both network failures and server errors, follow this structure:Wrap in Try/Catch: Use a try...catch block with async/await to capture network errors.Check response.ok: Immediately after fetching, check if response.ok is true. If not, manually throw an error to trigger the catch block.Use finally: Use a finally block for cleanup tasks, such as hiding loading spinners.javascriptasync function fetchData(url) {
-  try {
-    const response = await fetch(url);
-    
-    // Check for HTTP errors (4xx, 5xx)
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    // This catches network failures AND errors thrown above
-    console.error("Fetch failed:", error.message);
-  } finally {
-    // Code here runs regardless of success or failure
-    setLoading(false);
-  }
-}
-Use code with caution.Code Review Checklist for Error HandlingWhen reviewing code for Fetch API failures, check for these critical items:Is response.ok checked? If the code only uses .then().catch(), it is likely ignoring 404/500 errors.Are errors swallowed? Ensure the catch block doesn't just log the error; it should ideally update the UI to inform the user or report it to a service like Sentry.Is the message user-friendly? Technical details like stack traces should be logged for developers but hidden from users.Are specific errors handled? Check if different actions are taken for specific codes (e.g., redirecting on a 401 Unauthorized).Is a timeout implemented? Standard fetch doesn't have a default timeout; verify if an AbortController is used for long-running requests.
 
 this appears in the file(s): leaderboard.js
 
@@ -121,5 +101,27 @@ this appears in the file(s): leaderboard.js
   "code": "INSUFFICIENT_FUNDS"
 }
 Use code with caution.Best Practices for ImplementationTo build resilient and debuggable systems, ensure your API error handling covers the following:Be Specific and Actionable: Avoid vague errors like "Something went wrong." Provide exact reasons and guidance (e.g., "Password must be at least 8 characters").Hide Sensitive Info: Prevent 500 errors from leaking stack traces, database credentials, or internal server mechanics to end-users.Implement Logging & Monitoring: Automatically log all 4xx and 5xx errors internally so your engineering team can trace the sequence of API calls that led to the failure.Handle Retries Gracefully: For transient errors (e.g., 429 Too Many Requests or 503 Service Unavailable), implement an exponential backoff retry strategy rather than overloading the API server
+
+>Standard Implementation PatternTo handle both network failures and server errors, follow this structure:Wrap in Try/Catch: Use a try...catch block with async/await to capture network errors.Check response.ok: Immediately after fetching, check if response.ok is true. If not, manually throw an error to trigger the catch block.Use finally: Use a finally block for cleanup tasks, such as hiding loading spinners.javascriptasync function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    
+    // Check for HTTP errors (4xx, 5xx)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    // This catches network failures AND errors thrown above
+    console.error("Fetch failed:", error.message);
+  } finally {
+    // Code here runs regardless of success or failure
+    setLoading(false);
+  }
+}
+Use code with caution.Code Review Checklist for Error HandlingWhen reviewing code for Fetch API failures, check for these critical items:Is response.ok checked? If the code only uses .then().catch(), it is likely ignoring 404/500 errors.Are errors swallowed? Ensure the catch block doesn't just log the error; it should ideally update the UI to inform the user or report it to a service like Sentry.Is the message user-friendly? Technical details like stack traces should be logged for developers but hidden from users.Are specific errors handled? Check if different actions are taken for specific codes (e.g., redirecting on a 401 Unauthorized).Is a timeout implemented? Standard fetch doesn't have a default timeout; verify if an AbortController is used for long-running requests.
+
 
 That's all!!!!
