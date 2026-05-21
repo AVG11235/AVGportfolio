@@ -37,7 +37,7 @@ level3.js: update: const wolfbox (there are more examples but I wanted this to b
 
 ## <font color="indigo"> String Operations </font>
 
-main representations of string operations are path concatenation which is connecting files with links, like a certain file in certain folders leading to addresses and stuff, or more accurately the process of combining directory names and a file name to create a complete file system path, and texts displays which I do have in the grandma npc, and the level victory popup. String Operations are written like so 
+main representations of string operations are path concatenation which is connecting files with links, like a certain file in certain folders leading to addresses and stuff, or more accurately the process of combining directory names and a file name to create a complete file system path, and texts displays which I do have in the grandma npc, and the level victory popup. String Operations are written like so (${)
 
 const path
 ```

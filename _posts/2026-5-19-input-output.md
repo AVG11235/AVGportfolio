@@ -88,6 +88,18 @@ Something simple the coverage of key inputs in code connecting mechanics in game
         this.updateDirection();
     }
 ```
+shooterplayer code involves a q key input
+
+```
+        // Check for Q key press to shoot
+        if (this.pressedKeys[81]) { // Q key
+            this.shoot();
+        }
+
+        // Update bullets
+        this.updateBullets();
+    }
+```
 
 <a id="can"> </a>
 
@@ -411,6 +423,40 @@ basically focuses on the leaderboard system and scores seen in level 1 (and 4) u
 ## <font color="green"> Asynchronous I/O </font>
 
 this allows for multitasking on API calls which prevents freezes because of the server waits as it all doesn't run on the main thread which runs most of the in action game assets. It looks like this (using .then()): (in level1.js update function)
+
+```
+    static async testAPI() {
+        try {
+            const response = await fetch(pythonURI + '/api/ainpc/test', {
+                ...fetchOptions,
+                method: 'GET'
+            });
+            const data = await response.json();
+            return data.status === 'ok';
+        } catch (err) {
+            console.error('AI NPC API test failed:', err);
+            return false;
+        }
+    }
+
+    /**
+     * Reset conversation history for a session
+     * @param {string} sessionId - Session ID to reset
+     */
+    static async resetConversation(sessionId) {
+        try {
+            await fetch(pythonURI + '/api/ainpc/reset', {
+                ...fetchOptions,
+                method: 'POST',
+                body: JSON.stringify({ session_id: sessionId })
+            });
+        } catch (err) {
+            console.error('Failed to reset conversation:', err);
+        }
+    }
+}
+
+```
 
 ```
   update() {
