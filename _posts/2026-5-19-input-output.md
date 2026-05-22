@@ -21,6 +21,9 @@ permalink: /finale/inputoutput/
 
 Something simple the coverage of key inputs in code connecting mechanics in game like moving with WASD, and using event listeners to defines keys like-
 > Removes ability to click on grandma after level is beaten by destroying the event listener
+
+(Keyboard event listeners allow the player to interact with the game using movement and action controls such as WASD, arrow keys, and jumping.)
+
 ```
     destroy() {
         // GameLevel system handles destroying background, player, and enemy
