@@ -108,7 +108,7 @@ shooterplayer code involves a q key input
 
 ## <font color="blue"> Canvas Rendering </font>
 
-Canvas Rendering is about the update cycle updating animation frames and cycles and what happens in code to change what happens on screen, more specifically, just things involving the draw() function:
+Canvas Rendering is about the update cycle updating animation frames and cycles and what happens in code to change what happens on screen, (rendering visual objects), more specifically, just things involving the draw() function:
 (chose to not use a sprite as I prefer the look of the yellow cube for a bullet as it doesn't to be different for each possible direction the bullet could go)
 ```
     draw() {
@@ -124,7 +124,7 @@ Canvas Rendering is about the update cycle updating animation frames and cycles 
 
 ## <font color="yellow"> GameEnv Configuration </font>
 
-This section represents customization in game like the screen, controls, difficulties etc. which can be seen here as :
+This section represents customization in game like the screen, controls, difficulties etc. which can be seen here as (changing screen size/ window while still functioning) :
 
 ```
 import GameEnv from "./GameEnv.js"
@@ -168,7 +168,7 @@ class GameLevel {
 
 ## <font color="yellow"> API integration </font>
 
-basically focuses on the leaderboard system and scores seen in level 1 (and 4) using POST/GET:
+basically focuses on the leaderboard system and scores seen in level 1 (and 4) using POST/GET and fetch (integrates APIs to store and retrieve game data such as leaderboard scores. Fetch requests are used to communicate with backend services.):
 
 ```
  * BACKEND INTEGRATION:

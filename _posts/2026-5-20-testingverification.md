@@ -123,5 +123,27 @@ Use code with caution.Best Practices for ImplementationTo build resilient and de
 }
 Use code with caution.Code Review Checklist for Error HandlingWhen reviewing code for Fetch API failures, check for these critical items:Is response.ok checked? If the code only uses .then().catch(), it is likely ignoring 404/500 errors.Are errors swallowed? Ensure the catch block doesn't just log the error; it should ideally update the UI to inform the user or report it to a service like Sentry.Is the message user-friendly? Technical details like stack traces should be logged for developers but hidden from users.Are specific errors handled? Check if different actions are taken for specific codes (e.g., redirecting on a 401 Unauthorized).Is a timeout implemented? Standard fetch doesn't have a default timeout; verify if an AbortController is used for long-running requests.
 
+Ainpc.js code error handling
+
+```
+
+    /**
+     * Test backend API availability
+     * @returns {Promise<boolean>} True if API is available
+     */
+    static async testAPI() {
+        try {
+            const response = await fetch(pythonURI + '/api/ainpc/test', {
+                ...fetchOptions,
+                method: 'GET'
+            });
+            const data = await response.json();
+            return data.status === 'ok';
+        } catch (err) {
+            console.error('AI NPC API test failed:', err);
+            return false;
+        }
+    }
+```
 
 That's all!!!!
