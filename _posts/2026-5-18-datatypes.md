@@ -477,7 +477,7 @@ enpeecee.js showreactiondialogue function code (const):
 
 ### <font color="Blue"> Object JSON </font>
 
-Object Literals are JavaScript code. Keys do not require quotes (unless they contain special characters or spaces), they can hold functions and methods, and trailing commas are allowed.JSON is a strict data-interchange format (string format). Keys must be wrapped in double quotes, functions are prohibited, and trailing commas are forbidden.
+Object Literals are JavaScript code. Keys do not require quotes (unless they contain special characters or spaces), they can hold functions and methods, and trailing commas are allowed.JSON is a strict data-interchange format (string format). Keys must be wrapped in double quotes, functions are prohibited, and trailing commas are forbidden. (used to organize sprite data, character settings, and level configuration information.)
 
 Classic using {} and making a list of categories and values which can be seen below:
 
