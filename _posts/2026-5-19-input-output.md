@@ -126,7 +126,7 @@ Canvas Rendering is about the update cycle updating animation frames and cycles 
 
 This section represents customization in game like the screen, controls, difficulties etc. which can be seen here as (changing screen size/ window while still functioning) :
 
-```
+``` javascript
 import GameEnv from "./GameEnv.js"
 
 class GameLevel {
@@ -170,7 +170,7 @@ class GameLevel {
 
 basically focuses on the leaderboard system and scores seen in level 1 (and 4) using POST/GET and fetch (integrates APIs to store and retrieve game data such as leaderboard scores. Fetch requests are used to communicate with backend services.):
 
-```
+``` javascript
  * BACKEND INTEGRATION:
  * - Endpoint: /api/events/ELEMENTARY_LEADERBOARD (GET/POST/DELETE elementary scores)
  * - Endpoint: /api/events/SCORE_COUNTER (GET/POST dynamic scores)
@@ -202,7 +202,7 @@ basically focuses on the leaderboard system and scores seen in level 1 (and 4) u
  * User deletes score → deleteElementaryScore(id) → fetch(DELETE) → .then(refresh) → .catch(error)
  * 
 ```
-```
+``` javascript
  showElementaryForm() {
         const list = document.getElementById('leaderboard-list');
         if (!list) return;
@@ -333,7 +333,7 @@ basically focuses on the leaderboard system and scores seen in level 1 (and 4) u
             });
     }
 ```
-```
+``` javascript
    submitScore(username, score, gameName = null) {
         console.log('=== SUBMIT SCORE TO SCORE_COUNTER ===');
         
@@ -427,7 +427,7 @@ basically focuses on the leaderboard system and scores seen in level 1 (and 4) u
 
 this allows for multitasking on API calls which prevents freezes because of the server waits as it all doesn't run on the main thread which runs most of the in action game assets. It looks like this (using .then()): (in level1.js update function)
 
-```
+``` javascript
     static async testAPI() {
         try {
             const response = await fetch(pythonURI + '/api/ainpc/test', {
@@ -461,7 +461,7 @@ this allows for multitasking on API calls which prevents freezes because of the 
 
 ```
 
-```
+``` javascript
   update() {
     // Gravity and Physics Logic
     const player = this.gameEnv.gameObjects.find(obj => obj.id === 'player');
@@ -533,7 +533,7 @@ this allows for multitasking on API calls which prevents freezes because of the 
 
 Identified with Json.parse(), it parses API responses to make it readable to json as before it's as complex as bytes of code! not even sm64 uses that this is all about AI responses like in an NPC and leaderboards which are both in level1.js seen in leaderboard.js:
 
-```
+``` javascript
   addElementaryScore() {
         console.log('=== ADD ELEMENTARY SCORE ===');
         const nameInput = document.getElementById('player-name');

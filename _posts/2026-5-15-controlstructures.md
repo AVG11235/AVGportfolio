@@ -26,7 +26,8 @@ the objectives we will cover in this category are
 
 Iteration covers loops in the code like animation which can be seen in this character code: 
 
-```    /**
+``` js
+    /**
      * Updates the frame index for animation at a slower rate.
      */
     updateAnimationFrame() {
@@ -45,7 +46,7 @@ Iteration covers loops in the code like animation which can be seen in this char
 
 this part of code implements collision detection, often using if/else (while Mr. Mortonsen recomends something else!(a different phrase)) seen in this gameobject code (74-91): 
 
-```    
+```    js
 collisionChecks() {
         let collisionDetected = false;
 
@@ -71,7 +72,7 @@ collisionChecks() {
 
 nested conditions are multiple levels of conditionals to produce complex game logic which I believe is best represented in the bullets and what they do, they deal damage, dissapear on contact, dissappear off screen, move have collision, spawn from a q key press, and could use a texture. Their code is this: (bullet.js, update and shoot function)
 
-``` 
+``` js
     update() {
         super.update(); // Keep the top-down movement logic
 

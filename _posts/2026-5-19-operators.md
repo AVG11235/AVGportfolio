@@ -24,7 +24,7 @@ the first section of the Operators subject in code is "Mathematical", it covers 
 
 level3.js: update: const wolfbox (there are more examples but I wanted this to be quick and I have already covered velocity data)
 
-```
+``` js
        const wolfBox = {
             x: enemy.x + enemy.width * 0.15,  // Offset by 15% on each side (shrink by 30% total)
             y: enemy.y + enemy.height * 0.15, // Offset by 15% on top and bottom (shrink by 30% total)
@@ -40,7 +40,7 @@ level3.js: update: const wolfbox (there are more examples but I wanted this to b
 main representations of string operations are path concatenation which is connecting files with links, like a certain file in certain folders leading to addresses and stuff, or more accurately the process of combining directory names and a file name to create a complete file system path, and texts displays which I do have in the grandma npc, and the level victory popup. String Operations are written like so (${)
 
 const path
-```
+``` js
  const enemyData = {
             id: 'Wolf',
             greeting: "The Wolf!",
@@ -62,7 +62,7 @@ const path
 
 ```
 link imports:
-```
+``` js
 // level3.js - Red Riding Hood Level 3: The Confrontation
 import GameEnvBackground from '../essentials/GameEnvBackground.js';
 import ShooterPlayer from './ShooterPlayer.js';
@@ -72,7 +72,7 @@ import Explosion from './Explosion.js';
 import Npc from './enpeecee.js';
 ```
 message:
-```
+``` js
    showGrandmaVictory() {
         const message = document.createElement('div');
         message.id = 'victory-popup';
@@ -98,7 +98,7 @@ message:
     }
 ```
 W template for string operations
-```
+``` js
 // 1. Path Concatenation (Old way)
 const folder = "users";
 const file = "photo.png";
@@ -128,7 +128,7 @@ Boolean expansions are compounded expansions of game logic using && || !
 examples of them in my game look like 
 
 handleGrandmaClick funtion:
-```
+``` js
     handleGrandmaClick(event) {
         if (!this.grandma || !this.gameEnv.canvas) return; // look here
 

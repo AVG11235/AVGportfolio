@@ -52,7 +52,7 @@ Methods and Parameters covers stuff like handlers and although there are uses of
 
 >more examples of methods and parameters
 
-```
+``` js
    update() {
         if (this.gameOver) return;
 
@@ -107,14 +107,14 @@ Methods and Parameters covers stuff like handlers and although there are uses of
             });
         });
 ```
-```
+``` js
     update() {
         this.draw();
         this.collisionChecks();
         this.move();
     }
 ```
-```
+``` js
     draw() {
         // Clear the canvas before drawing
         this.clearCanvas();
@@ -183,7 +183,7 @@ The correct subclass version runs at runtime.
 
 (ooh look "override" in player.js!, 146 to 175!)
 
-```
+``` js
    /**
      * Overrides the reaction to the collision to handle
      *  - clearing the pressed keys array

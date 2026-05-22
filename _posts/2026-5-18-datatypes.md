@@ -30,7 +30,7 @@ This objective just asks for a simple showcase of numeric data in the code, whic
 
 level4.js (constructor) 57-116:, 
 
-``` 
+``` js 
         // Minigame state
         this.score = 0;
         this.timeLeft = 60; // 60 seconds
@@ -95,7 +95,7 @@ level4.js (constructor) 57-116:,
 
 shooterplayer.js shoot function:,
 
-```
+``` js
  shoot() {
         const currentTime = Date.now();
         if (currentTime - this.lastShotTime < this.shootCooldown) return;
@@ -129,7 +129,7 @@ shooterplayer.js shoot function:,
 
 and player.js movement code (4-144):
 
-```
+``` js
 // Define non-mutable constants as defaults
 const SCALE_FACTOR = 25; // 1/nth of the height of the canvas
 const STEP_FACTOR = 100; // 1/nth, or N steps up and across the canvas
@@ -279,7 +279,7 @@ class Player extends Character {
 examples of strings are Character names, sprite paths, game states as seen in:
 
 grandma enpeecee code in level3.js: 
-```
+``` js
   const grandmaData = {
             id: 'Grandma',
             src: path + "/images/gamify/lrrh-lvl3-grandma.png",
@@ -317,7 +317,7 @@ grandma enpeecee code in level3.js:
 Booleans covers boolean logic like flags for stuff like player states (like maybe a cooldown in my case), which for me can be seen in , as seen below:
 
 bullet.js constructor code:
-```
+``` js
 class Bullet {
     constructor(data) {
         this.x = data.x;
@@ -338,7 +338,7 @@ class Bullet {
     }
 ```
 level3.js const code:
-```
+``` js
         const sprite_src_red = path + "/images/gamify/Finalred.png";
         const sprite_data_red = {
             id: 'RedRidingHood',
@@ -360,7 +360,7 @@ level3.js const code:
         };
 ```
 shooterplayer.js cooldown code:
-```
+``` js
 class ShooterPlayer extends Player {
     constructor(data, gameEnv) {
         super(data, gameEnv); // Calls the original Player constructor
@@ -419,7 +419,7 @@ class ShooterPlayer extends Player {
 arrays represent collections of "memory" usong brackets [], which I see here
 
 level3.js grandma dialogue code:
-```
+``` js
             interactionRadius: 400, // Interaction area (now half the previous size)
             dialogues: ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"],
             // Use reaction property to trigger dialogue on collision
@@ -436,9 +436,9 @@ level3.js grandma dialogue code:
                 }
             }.bind(this)
         };
-```
+``` 
 shooterplayer.js constructor code:
-```
+``` js
 class ShooterPlayer extends Player {
     constructor(data, gameEnv) {
         super(data, gameEnv); // Calls the original Player constructor
@@ -450,14 +450,14 @@ class ShooterPlayer extends Player {
 ```
 shooterplayer.js update code (this covers something very array esq dictation of the q button):
 
-```
+``` js
    // Check for Q key press to shoot
         if (this.pressedKeys[81]) { // Q key
             this.shoot();
         }
 ``` 
 enpeecee.js showreactiondialogue function code (const):
-```
+``` js
  showReactionDialogue() {
         if (!this.dialogueSystem) return;
 
@@ -483,7 +483,7 @@ Classic using {} and making a list of categories and values which can be seen be
 
 (used first half of level3.js const grandma code)
 
-```
+``` js
 const grandmaData = {
             id: 'Grandma',
             src: path + "/images/gamify/lrrh-lvl3-grandma.png",

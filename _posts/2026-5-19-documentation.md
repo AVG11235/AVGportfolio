@@ -17,7 +17,7 @@ permalink: /finale/documentation/
 ## <font color="green"> Code Comments </font>
 this asks you for if you made tons of comments using // blah blah blah like-
 
-```
+``` js
         // Use moveDirection and speed, defaulting if not set
         if (!this.moveDirection) this.moveDirection = { x: 1, y: 1 };
         if (!this.speed) this.speed = 1;
@@ -104,7 +104,7 @@ HOW TO MAKE DIFFERENT GRANDMA DIALOGUE OUTCOMES DEPENDING ON SOME EVENTS:
 
 THE CODE LOOKS LIKE THIS :
 
-```
+``` js
             dialogues: ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"],
 
             // Use reaction property to trigger dialogue on collision
@@ -139,14 +139,14 @@ By the way this is an if then statement, so then...
 
 these first if's check to set up the grandma into the scenario (even from files like enpeecee.js) to have the dialogue ready
 
-```
+``` js
               if (!this.grandma) this.grandma = grandmaRef;
                 if (this.grandma && this.grandma.showReactionDialogue) {
 ```
 
 lastly-ish this code covers the if part of the statement as, if the enemy is defeated, you get the positive message, and if anything else the case, (from interacting with grandma through collision colliding) you get the negative message, and that's all!!!
 
-```
+``` js
                    if (this.enemyDefeated) {
                         this.grandma.dialogueSystem.dialogues = ["Now, that's the girl I partially raised!!!"];
                     } else {

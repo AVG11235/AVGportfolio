@@ -42,7 +42,7 @@ so the code gives a result, a failure result to tell you it's not working so you
 
 this appears in the file(s): leaderboard.js
 
-```
+``` js
         console.log('Payload:', JSON.stringify(requestBody));
 
         // POST to backend using API chaining pattern
@@ -125,7 +125,7 @@ Use code with caution.Code Review Checklist for Error HandlingWhen reviewing cod
 
 Ainpc.js code error handling
 
-```
+``` js
 
     /**
      * Test backend API availability

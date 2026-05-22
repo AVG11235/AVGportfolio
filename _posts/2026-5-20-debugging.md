@@ -21,7 +21,7 @@ permalink: /finale/debugging/
 
 console debugging focuses on the ability to check the console to see stuff going on in game using the console by inspecting the page to find important details of whats going on in game, I do have, code that logs stuff for the console and here are images of it too
 
-```
+``` js
    showInstructions() {
         console.log("=== LEVEL 3: FACE THE WOLF ===");
         console.log("WASD - Move Red Riding Hood");
