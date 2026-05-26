@@ -23,6 +23,7 @@ Yeah I can show you my 2 levels, they work well, they'll be another link to the 
 ## <font color="purple"> Integration Testing </font>
 
 an AI npc and leaderboard was done by Rashi but it doesn't work too well on my computer from tests
+this just covers how well everything in the works all together
 
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/lead.png" alt="Image 37">
@@ -145,5 +146,66 @@ Ainpc.js code error handling
         }
     }
 ```
+
+``` js
+                    try {
+                        const pixels = this.spriteData.pixels;
+                        const orientation = this.spriteData.orientation;
+                        const frameW = Math.max(1, Math.round(pixels.width / orientation.columns));
+                        const frameH = Math.max(1, Math.round(pixels.height / orientation.rows));
+                        console.log("[Character] Sprite loaded:", this.spriteSheet.src,
+                                    "natural:", this.spriteSheet.naturalWidth + 'x' + this.spriteSheet.naturalHeight,
+                                    "pixels:", pixels.width + 'x' + pixels.height,
+                                    "orientation:", orientation.columns + 'x' + orientation.rows,
+                                    "frame:", frameW + 'x' + frameH);
+
+                        const dirs = ['up','right','down','left','upRight','upLeft','downRight','downLeft'];
+                        dirs.forEach(d => {
+                            const dd = this.spriteData[d];
+                            if (!dd) return;
+                            const row = dd.row || 0;
+                            const cols = dd.columns || orientation.columns || 1;
+                            console.log(`[Character] direction ${d}: row=${row}, columns=${cols}`);
+                        });
+                    } catch (logErr) {
+                        console.warn('Character sprite diagnostics failed', logErr);
+                    }
+                } catch (err) {
+                    console.warn('Error during sprite onload processing', err);
+                }
+```
+try
+
+Runs risky code:
+
+fetch requests
+JSON parsing
+API communication
+catch
+
+Runs if something fails.
+
+Example failures:
+
+no internet
+server offline
+invalid JSON
+CORS errors
+
+Why response.ok Matters
+
+Status codes like:
+
+404
+500
+403
+
+do NOT automatically trigger catch.
+
+Even if fetch succeeds, the server may still fail.
+
+## Super notes (temp.)
+
+Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
 
 That's all!!!!

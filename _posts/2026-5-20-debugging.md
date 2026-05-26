@@ -19,6 +19,42 @@ permalink: /finale/debugging/
 
 ## <font color="orange">Console Debugging </font>
 
+1. Opening Chrome DevTools
+Method 1
+
+Right click the page → Inspect
+
+Method 2
+
+Keyboard shortcuts:
+
+Windows/Linux
+Ctrl + Shift + I
+Mac
+Cmd + Option + I
+
+Then click the Console tab.
+
+2. What the Console Does
+
+The Console:
+
+displays errors
+prints variables
+tracks game events
+logs collisions
+shows API responses
+helps debug movement and animations
+3. Basic console.log()
+
+Example: 
+
+``` js
+                console.warn('Failed to load sprite sheet:', data.src, e);
+```
+
+Appears if in the (specified by character.js) sprite sheet fails to load after checks and other console logs proven unused
+
 console debugging focuses on the ability to check the console to see stuff going on in game using the console by inspecting the page to find important details of whats going on in game, I do have, code that logs stuff for the console and here are images of it too
 
 ``` js
@@ -45,10 +81,191 @@ this asks for their to be a feature to showcase the hit box toggle I don't belie
 
 ## <font color="purple"> Source-level Debugging </font>
 
-To perform source-level debugging in Chrome DevTools, you use the Sources panel to set breakpoints and control code execution.
-1. Open the Sources PanelAccess Chrome DevTools by pressing F12 or Ctrl+Shift+I (Cmd+Option+I on Mac) and click the Sources tab. Use the file navigator on the left to select the JavaScript file you want to inspect.
-2. Set BreakpointsBreakpoints tell the browser to pause execution so you can inspect the application's state.Manual Breakpoint: Click the line number in the gutter where you want to pause. A blue icon indicates it is set.Conditional Breakpoint: Right-click a line number, select Add conditional breakpoint, and enter a JavaScript expression. The code only pauses if the expression is true.debugger Statement: Add debugger; directly into your source code. If DevTools is open, the browser will automatically pause at that line.
-3. Step Through ExecutionOnce paused, use the debugging toolbar (usually in the top right of the Sources panel) to navigate the code:Resume (F8): Continues execution until the next breakpoint is hit.Step over (F10): Executes the next line of code but does not enter into functions called on that line.Step into (F11): Enters the first line of the function being called on the current line.Step out (Shift+F11): Finishes the current function and pauses at the line following the function call.4. Inspect StateWhile paused, you can examine values in real-time:Scope Pane: View all local and global variables currently in memory.Watch Expressions: Add specific variables or expressions to monitor their values as you step through code.Call Stack: See the history of function calls that led to the current execution point.
+>Source-level debugging was performed using Chrome DevTools’ Sources tab. Breakpoints were set in movement, collision, and animation methods to pause execution and inspect variables such as position, velocity, and collision data. Stepping through code line-by-line helped identify gameplay bugs and verify logic flow during runtime.
+
+Source-Level Debugging Guide for Games in Chrome
+
+Source-level debugging means using the Sources tab in Chrome DevTools to:
+
+pause code execution
+inspect variables
+step through functions line-by-line
+track game logic in real time
+
+This directly matches your rubric requirement:
+
+“Set breakpoints in DevTools, step through code execution”
+
+1. Open Chrome DevTools
+Shortcut
+Windows/Linux
+Ctrl + Shift + I
+Mac
+Cmd + Option + I
+
+Then click:
+
+Sources
+2. Find Your JavaScript File
+
+In the left panel:
+
+open your site files
+navigate to:
+Player.js
+Character.js
+Enemy.js
+
+Click the file you want to debug.
+
+3. Set a Breakpoint
+
+A breakpoint pauses the game at a specific line.
+
+How
+
+Click the line number.
+
+Example:
+
+this.velocity.x += this.xVelocity;
+
+A blue marker appears.
+
+When the code reaches that line:
+
+the game pauses
+DevTools stops execution
+4. Inspect Variables
+
+While paused:
+
+hover variables
+view values in the right panel
+inspect objects
+
+Example:
+
+this.position
+this.velocity
+this.direction
+
+You can see:
+
+player coordinates
+movement speed
+collision states
+animation frames
+
+6. Example With Your Player Code
+
+Suppose you set a breakpoint here:
+
+updateVelocity() {
+
+Now when movement happens:
+
+game pauses
+you inspect:
+pressedKeys
+velocity
+direction
+
+This helps debug:
+
+movement bugs
+stuck movement
+incorrect controls
+7. Debugging Collisions
+
+Set a breakpoint here:
+
+handleCollisionReaction(other)
+
+When collision occurs:
+
+game pauses instantly
+inspect:
+other
+touchPoints
+velocity
+
+Perfect for debugging walls and enemy collisions.
+
+8. Debugging Animation
+
+Breakpoint example:
+
+updateAnimationFrame()
+
+Inspect:
+
+frameIndex
+frameCounter
+direction
+
+Useful for:
+
+broken animations
+wrong sprite rows
+animation timing
+9. Watch Expressions
+
+In the right panel:
+Add watches like:
+
+this.position.x
+this.velocity.y
+this.direction
+
+Chrome updates them live while debugging.
+
+10. Pausing on Errors
+
+In Sources:
+Enable:
+
+Pause on exceptions
+
+Now Chrome automatically pauses when:
+
+code crashes
+undefined variables occur
+APIs fail
+
+Very useful.
+
+11. Debugging Game Loops
+
+Games update constantly, so:
+
+breakpoints pause the loop
+you can inspect the exact frame where bugs happen
+
+This is extremely useful for:
+
+collision bugs
+teleporting
+physics glitches
+animation issues
+12. Example Workflow
+Problem:
+
+Player clips through wall.
+
+Debug Process:
+Open Sources
+Set breakpoint in:
+handleCollisionReaction()
+Move into wall
+Game pauses
+Inspect:
+touchPoints
+velocity
+position
+Find incorrect collision logic
+
+This is real source-level debugging.
 
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/sourcegame.png" alt="Image 32">
@@ -58,12 +275,222 @@ To perform source-level debugging in Chrome DevTools, you use the Sources panel 
 
 ## <font color="red"> Network Debugging </font>
 
-To perform network debugging using browser developer tools, follow these steps to examine API calls, identify CORS errors, and inspect response data:
-1. Open the Network TabOpen the Developer Tools by right-clicking anywhere on the page and selecting Inspect, or by using keyboard shortcuts:Windows/Linux: Ctrl + Shift + I or F12macOS: Cmd + Opt + INavigate to the Network tab at the top of the DevTools panel. If it is empty, reload the page (press F5 or Cmd + R) to begin logging active requests.
-2. Filter for API CallsTo focus on fetch requests and suppress noise like images or CSS, click the Fetch/XHR filter button in the Network tab toolbar. Each row now represents a specific data request made by the application.
-3. Examine Response Status and HeadersLocate your request in the Name column and check the Status column:200 OK: Success.4xx/5xx: Client or server errors (often highlighted in red).Click a request to open its details panel and select the Headers tab to view the full Request URL, Method (GET, POST), and both request and response headers.
-4. Identify CORS ErrorsCORS errors occur when a browser blocks a cross-origin request due to missing or incorrect security headers.Network Tab: A CORS failure often shows as a failed request with no status code or "CORS error" in the status column.Headers Tab: Look for Access-Control-Allow-Origin. If it is missing or doesn't match your domain, the browser will block the response.Console Tab: Check the Console for specific red error messages detailing which CORS policy was violated.
-5. Inspect Fetch Data (Demo)To verify the actual data exchanged, use these tabs within the request details panel:Payload: View the data sent to the server (e.g., JSON in a POST request).Preview: Shows a formatted view of the returned data, making JSON objects easy to read.Response: Shows the raw content returned by the server.Pro Tip: If you need to test a fix, right-click a request and select "Copy as fetch". You can then paste it into the Console tab, modify parameters, and re-run the request without reloading the whole page.
+1. Open Chrome DevTools
+Shortcut
+Windows/Linux
+Ctrl + Shift + I
+Mac
+Cmd + Option + I
+
+Then click:
+
+Network
+2. Reload the Game
+
+Press:
+
+F5
+
+or refresh the page.
+
+The Network tab now records:
+
+images
+JavaScript files
+APIs
+sounds
+fetch requests
+3. Understanding the Network Tab
+
+Each request shows:
+
+file/API name
+request type
+status code
+file size
+loading time
+4. Important Status Codes
+Code	Meaning
+200	Success
+404	File not found
+500	Server error
+403	Forbidden
+401	Unauthorized
+
+Example:
+
+404 leaderboard API
+
+means the request failed.
+
+5. Debugging API Requests
+
+Suppose your game saves scores:
+
+fetch("/api/leaderboard")
+
+In Network:
+
+click the request
+inspect details
+
+You can see:
+
+request headers
+response body
+errors
+JSON data
+6. Inspecting JSON Responses
+
+Click:
+
+Preview
+
+or:
+
+Response
+
+You can inspect returned leaderboard data like:
+
+[
+  {
+    "name": "Alex",
+    "score": 500
+  }
+]
+
+This demonstrates:
+
+JSON parsing
+backend communication
+API integration
+7. Debugging Failed Requests
+
+If a request fails:
+
+it appears red in Network
+
+Example errors:
+
+404 Not Found
+500 Internal Server Error
+CORS Error
+
+This helps identify:
+
+broken API URLs
+backend issues
+missing assets
+8. Debugging Asset Loading
+
+Games load many assets:
+
+sprites
+sounds
+backgrounds
+
+Network helps find missing files.
+
+Example:
+
+player.png 404
+
+Means:
+
+image path incorrect
+asset missing
+9. Filtering Requests
+
+Use filters:
+
+Fetch/XHR → APIs
+Img → sprites/images
+JS → scripts
+
+Very useful for large games.
+
+10. Example Using Your Project
+
+Suppose sprite fails to load:
+
+this.spriteSheet.src = data.src;
+
+Network debugging lets you:
+
+check image request
+verify path
+inspect loading failure
+11. Debugging API Error Handling
+
+Your rubric wants this specifically.
+
+Example:
+
+try {
+    const response = await fetch("/api/leaderboard");
+} catch (error) {
+    console.error(error);
+}
+
+Then in Network:
+
+inspect failed request
+verify status code
+analyze response
+
+This is full API/network debugging.
+
+12. Simulating Slow Internet
+
+In Network:
+Change:
+
+No throttling
+
+to:
+
+Slow 3G
+Fast 3G
+
+This helps test:
+
+loading screens
+async behavior
+lag handling
+
+Very useful for games.
+
+13. Preserve Logs
+
+Enable:
+
+Preserve log
+
+This keeps requests visible after page refresh.
+
+Helpful for debugging startup/loading issues.
+
+14. Example Debug Workflow
+Problem:
+
+Leaderboard not saving.
+
+Steps:
+Open Network tab
+Filter Fetch/XHR
+Submit score
+Inspect request
+Check:
+status code
+response body
+request payload
+
+You may discover:
+
+wrong API URL
+missing JSON
+server failure
+
 
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/networkgame.png" alt="Image 34">
@@ -73,7 +500,137 @@ To perform network debugging using browser developer tools, follow these steps t
 
 ## <font color="pink"> Application Debugging </font>
 
-To debug application storage like cookies, localStorage, and session data, use the Application tab in Chrome DevTools. This panel provides a central view for inspecting and managing all the data your web app stores in the browser.Steps to Inspect Stored DataOpen DevTools: Right-click anywhere on your page and select Inspect, or use the keyboard shortcut F12 (or Ctrl+Shift+I on Windows/Linux; Cmd+Option+I on Mac).Navigate to the Application Tab: Click the Application tab at the top of the DevTools window. If it's hidden, click the ">>" more tabs icon.Locate Storage in the Sidebar: On the left-hand menu, you will see a Storage section.Demo: Inspecting Specific Data TypesExamine Cookies: Expand the Cookies dropdown and select the site's URL. This table shows current cookies, their values, and expiration dates—crucial for verifying if a session token is set correctly.Inspect localStorage: Expand the Local Storage menu and click the domain to see persistent key-value pairs. You can double-click any value to edit it and test how your app reacts to data changes.View sessionData: Expand Session Storage to see temporary data that lasts only until the tab is closed.Debugging Login/StateFor login issues, check the Cookies or Local Storage to see if an auth_token or session_id exists. If you are logged in but the storage is empty, the token might be stored in a way that is hidden or expired. You can right-click any item to Delete it and refresh the page to see if it forces a logout.
+1. Open Chrome DevTools
+Shortcut
+Windows/Linux
+Ctrl + Shift + I
+Mac
+Cmd + Option + I
+
+Then click:
+
+Application
+2. What the Application Tab Does
+
+The Application tab lets you inspect browser-stored data.
+
+Games often store:
+
+player progress
+high scores
+settings
+login information
+save states
+3. localStorage Debugging
+
+Many games use:
+
+localStorage.setItem("score", 500);
+
+to save data.
+
+Viewing localStorage
+
+In DevTools:
+
+Application → Local Storage
+
+Select your website.
+
+You’ll see:
+
+keys
+values
+stored game data
+
+Example:
+
+Key	Value
+score	30
+playerName	AVG
+4. Example Game Save System
+
+Saving data:
+
+localStorage.setItem("highScore", score);
+
+Loading data:
+
+const highScore = localStorage.getItem("highScore");
+5. Why This Helps Debugging
+
+You can verify:
+
+scores save correctly
+settings persist
+game state updates
+values are not corrupted
+6. Editing Stored Data
+
+In the Application tab:
+
+double click a value
+edit it live
+
+Example:
+Change:
+
+highScore = 999999
+
+Useful for:
+
+testing
+debugging edge cases
+verifying game behavior
+7. Removing Broken Data
+
+You can delete storage entries if:
+
+save files break
+old data causes bugs
+testing needs reset
+
+Right click → Delete
+
+8. sessionStorage
+
+Similar to localStorage but temporary.
+
+Data disappears when tab closes.
+
+Example:
+
+sessionStorage.setItem("currentLevel", 3);
+
+Useful for:
+
+temporary sessions
+checkpoints
+current match state
+9. Cookies
+
+Games/web apps may use cookies for:
+
+login sessions
+authentication
+preferences
+
+View them under:
+
+Application → Cookies
+10. Cache Storage
+
+Games often cache:
+
+images
+sounds
+scripts
+
+Application tab helps inspect:
+
+cached assets
+service workers
+offline behavior
 
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/appgame.png" alt="Image 33">
@@ -83,7 +640,192 @@ To debug application storage like cookies, localStorage, and session data, use t
 
 ## <font color="yellow"> Elemental Inspection </font>
 
-To perform Element Inspection and use the Element Viewer for inspecting canvas, DOM elements, and game object states, follow these steps based on your development environment:1. General Web DOM & Style InspectionFor standard web elements and CSS styles, use your browser's built-in developer tools:Open the Inspector: Right-click any element on a webpage and select Inspect or Inspect Element.Keyboard Shortcuts: Use Ctrl + Shift + C (Windows/Linux) or Cmd + Option + C (macOS) to enter Inspect Mode directly.Analyze Styles: Once an element is selected, the Styles pane displays all applied CSS rules, including those that are inherited or overridden.2. Canvas & Game Object InspectionStandard DOM inspectors cannot "see" inside a <canvas> element because it is a single pixel-based surface. To inspect game objects or canvas states:Chrome Canvas Inspection: You can enable experimental canvas debugging by navigating to chrome://flags and enabling Developer Tools experiments.Specialized Extensions: For WebGL-based games, tools like the WebGL Inspector (or similar browser extensions) allow you to capture frames and view the state of game objects and textures.Unity Element Viewer: If you are working in Unity, the Element Viewer is used within the editor to modify properties of UI elements or game objects in a tree-like structure, similar to the browser's DOM tree.3. Debugging Game State via ConsoleIf specialized visual tools are unavailable, you can often inspect game object states through the Console:Get a reference to the canvas or game object in the code.Use yourCanvas.toDataURL() to grab a snapshot of the current frame.Log game objects to the console (console.log(gameObject)) to inspect their properties, variables, and current state in real-time.
+Element Inspection Guide for Games in Chrome
+
+Element inspection uses the Elements tab in Chrome DevTools to inspect and debug:
+
+HTML elements
+canvas positioning
+styles
+game UI
+hitboxes
+DOM structure
+
+This directly matches your rubric requirement:
+
+“Inspect canvas, DOM elements, styles, and game object state”
+
+1. Open Chrome DevTools
+Shortcut
+Windows/Linux
+Ctrl + Shift + I
+Mac
+Cmd + Option + I
+
+Then click:
+
+Elements
+2. What the Elements Tab Does
+
+The Elements tab lets you inspect:
+
+webpage structure
+canvas elements
+CSS styles
+game UI components
+dynamically created objects
+
+For games, this is useful because many objects are drawn or controlled through the DOM.
+
+3. Selecting Elements
+
+Click the cursor icon:
+
+Select an element
+
+Then click something on the page.
+
+Chrome highlights:
+
+the HTML element
+styles
+dimensions
+positioning
+4. Inspecting the Game Canvas
+
+Your project creates canvases dynamically:
+
+this.canvas = document.createElement("canvas");
+
+In Elements you can inspect:
+
+canvas size
+position
+styles
+z-index
+visibility
+5. Inspecting CSS Styles
+
+Your game uses styles like:
+
+this.canvas.style.left = `${this.position.x}px`;
+
+In Elements:
+
+see computed styles
+edit values live
+test positioning changes
+
+Useful for debugging:
+
+off-screen objects
+layering problems
+scaling issues
+6. Live Editing Styles
+
+You can directly edit CSS in DevTools.
+
+Example:
+Change:
+
+width: 50px;
+
+to:
+
+width: 100px;
+
+This updates instantly without refreshing.
+
+Very useful for:
+
+hitbox alignment
+UI testing
+scaling adjustments
+7. Inspecting Game Object State
+
+Since your game stores object data in elements:
+
+this.canvas.id = data.id;
+
+you can inspect:
+
+object IDs
+class names
+styles
+visibility
+8. Debugging Positioning Problems
+
+Example issue:
+
+player appears in wrong place
+
+Inspect:
+
+left
+top
+width
+height
+
+inside Elements.
+
+This helps debug:
+
+movement bugs
+resize problems
+scaling calculations
+9. Viewing Canvas Dimensions
+
+You can inspect:
+
+canvas.width
+canvas.height
+
+Useful for:
+
+sprite scaling
+hitbox mismatch
+animation clipping
+10. Debugging Hidden Elements
+
+If UI disappears:
+
+inspect element visibility
+check:
+display
+visibility
+opacity
+z-index
+
+Very common debugging step.
+
+11. Inspecting Touch Controls
+
+Your code creates:
+
+TouchControls
+
+Element inspection can verify:
+
+buttons exist
+positions are correct
+controls appear on mobile
+12. Example Debug Workflow
+Problem:
+
+Player sprite appears off-screen.
+
+Steps:
+Open Elements
+Select canvas
+Inspect:
+left
+top
+width
+height
+Find incorrect positioning value
+Adjust/test live
+
+Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
 
 simply speaking: you inspect with right click, go to the elements tab, press the ctrl+shift+c button thats like a square with a mouse on it and it lets you click elements on the game to check their code mainly image files, yeah btw elements mainly shows off code.
 

@@ -423,12 +423,6 @@ This means:
 That is advanced OOP usage and very good rubric evidence.
 
 
-Method Overriding includes "update", "draw", and "handlecollision" as they're parent methods in its work.
-
- What Method Overriding it does is A subclass defining its own version of a method that already exists in the parent class.
-
-The method name and parameter list stay the same. The subclass implementation replaces the parent behavior for that object type. Which can be seen below: like If GameObject or Entity has: update(), draw(), handleCollision(). Then a child class like Player, Enemy, or NPC can override them: as seen using Player.update() controls player movement and input, Enemy.update() controls enemy AI or patrol logic, Player.draw() renders the player sprite, Enemy.draw() renders enemy sprites, Player.handleCollision() reacts to walls, items, bullets, Enemy.handleCollision() reacts to the player, obstacles, spells. 
-
 This proves polymprphic implementation, meaning Code outside doesn’t need to know the exact subclass
 It can call object.update() or object.handleCollision(...)
 The correct subclass version runs at runtime.
@@ -443,41 +437,6 @@ The correct subclass version runs at runtime.
   <img src="{{site.baseurl}}/images/final-images/game-object-handle-2.png" alt="Image 18">
   <img src="{{site.baseurl}}/images/final-images/game-object-handle-3.png" alt="Image 19">
 </div> 
-
-(ooh look "override" in player.js!, 146 to 175!)
-
-``` js
-   /**
-     * Overrides the reaction to the collision to handle
-     *  - clearing the pressed keys array
-     *  - stopping the player's velocity
-     *  - updating the player's direction   
-     * @param {*} other - The object that the player is colliding with
-     */
-    handleCollisionReaction(other) {    
-        // Do NOT clear pressed keys; keep walking animation active
-        // Halt movement by zeroing velocity along collision axis
-
-        // Avoid DOM-based push-out; rely on velocity zeroing only
-            // Do NOT clear pressed keys; keep walking animation active
-            // Halt movement by zeroing velocity along the touched axes; avoid DOM-based push-out
-            try {
-                const touchPoints = this.collisionData?.touchPoints?.this;
-                if (touchPoints) {
-                    // Horizontal block
-                    if (touchPoints.left || touchPoints.right) {
-                        this.velocity.x = 0;
-                    }
-                    // Vertical block
-                    if (touchPoints.top || touchPoints.bottom) {
-                        this.velocity.y = 0;
-                    }
-                }
-            } catch (_) {}
-
-        super.handleCollisionReaction(other);
-    }
-```
 
 <a id="construct"></a>
 
