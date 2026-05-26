@@ -2,7 +2,7 @@
 toc: false 
 layout: post
 title: Control Structures
-description: the second section of rubric objectives 
+description: the third section of rubric objectives 
 permalink: /finale/datatypes/
 ---
 
