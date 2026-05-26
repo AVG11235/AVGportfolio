@@ -350,6 +350,26 @@ Methods and Parameters covers stuff like handlers too, and although there are us
 
 ## <font color="red"> Instantiation & Objects </font> 
 
+Difference Between create() and Instantiation
+Concept	Meaning
+Instantiation	Creating individual objects
+create()	Setting up larger systems or environments
+Example
+const player = new Player();
+
+Instantiation:
+creates ONE object.
+
+GameEnv.create();
+
+Setup method:
+initializes the entire environment.
+
+``` js
+            // Load the sprite sheet
+            this.spriteSheet = new Image();
+```
+
 For this segment Instantiation and objects covers how gamelevel's in the game engine set up objects in the game like characters, background areas, collisions, coins, bullets, etc. which for example can be seen here: in the class of Game Object constructor it sets up creates and instances which are used and applied in other parts of game object throughout all "Game Object"'s.
 
 <div class="image-gallery">
