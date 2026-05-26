@@ -179,6 +179,29 @@ Each bullet object gets its own: x (data), y (data), velocity (x,y axis), gameEn
         console.log('Bullet spawned at', this.position.x, this.position.y, 'facing', this.facing);
     }
 ```
+> Attributes / Properties
+Stores object state/data
+
+Example of purely attributes (it can cover any subject though):
+``` js
+        this.width = 40;
+        this.height = 40;
+```
+
+> the "extends" phrase covers the subject of inheritance 
+(from character code)
+``` js
+class Character extends GameObject {
+```
+this means Character inherits data from GameObject
+
+> super is used in a child class to access things from the parent class.
+
+``` js
+constructor(data = null, gameEnv = null) {
+    super(data, gameEnv);
+}
+```
 
 > Creating an Object From the Class
 
@@ -191,52 +214,36 @@ this creates a new bullet object
 > Using the Object
 
 Input:
-
 ``` js
         this.bullets.forEach(bullet => bullet.destroy());
 
 ```
-
 Output:
-
 ``` js
         // Clean up bullets when player is destroyed
 
 ```
-
 Input:
-
 ``` js
         this.bullets = this.bullets.filter(bullet => {
 
 ```
-
 Output:
-
 ``` js
         // Remove destroyed bullets
 
 ```
-
 Input:
-
 ``` js
         const bullet = new Bullet(bulletData);
         this.bullets.push(bullet);
         this.gameEnv.gameObjects.push(bullet);
 ```
-
 Output:
-
 ``` js
         console.log('Bullet spawned at', this.position.x, this.position.y, 'facing', this.facing);
 
 ```
-
-> Explanation all together:
-
-A class is a blueprint used to create objects. In this example, the Player class stores player data like name and health and includes methods that allow the player to move and take damage. The constructor initializes the object, while this stores values that belong to each specific player object.
-
 
 <a id="meth"></a>
 
@@ -262,6 +269,8 @@ Methods and Parameters covers stuff like handlers too, and although there are us
   <img src="{{site.baseurl}}/images/final-images/enpeecee-handler.png" alt="Image 4">
   <img src="{{site.baseurl}}/images/final-images/enpeecee-handler-clean.png" alt="Image 5">
 </div> 
+
+>destroy and update are the methods here
 
 >more examples of methods and parameters
 
@@ -327,6 +336,7 @@ Methods and Parameters covers stuff like handlers too, and although there are us
         this.move();
     }
 ```
+>2 update methods
 ``` js
     draw() {
         // Clear the canvas before drawing
@@ -346,16 +356,21 @@ Methods and Parameters covers stuff like handlers too, and although there are us
         this.setupCanvas();
     }
 ```
+> draw method 
+> {} usually represents an object or a block of code in JavaScript.
+> && means AND in code (pretty obvious use cases)
 <a id="instant"></a>
 
 ## <font color="red"> Instantiation & Objects </font> 
 
-Difference Between create() and Instantiation
+>Difference Between create() and Instantiation
 Concept	Meaning
 Instantiation	Creating individual objects
 create()	Setting up larger systems or environments
 Example
 const player = new Player();
+
+Instantation uses the phrase "new"
 
 Instantiation:
 creates ONE object.
@@ -380,7 +395,14 @@ For this segment Instantiation and objects covers how gamelevel's in the game en
 
 ## <font color="green"> Inheritance (basic) </font>
 
-Files in the same folder can inherit things from one another using objects (key words) and IMPORTING data from other files to use in something new like EXTENDING from an object to a character to a player or an enemy.
+> the "extends" phrase covers the subject of inheritance 
+(from character code)
+``` js
+class Character extends GameObject {
+```
+this means Character inherits data from GameObject
+
+Files in the same folder (as in links in base url in sub folders and code) can inherit things from one another using objects (key words) and IMPORTING data from other files to use in something new like EXTENDING from an object to a character to a player or an enemy.
 
 Player class:
 ``` js
@@ -400,6 +422,14 @@ This one's a classic, the heirarchy system of classes using phrases like "extend
 <a id="method"></a>
 
 ## <font color="gray"> Method Overriding </font>
+
+> super is used in a child class to access things from the parent class.
+
+``` js
+constructor(data = null, gameEnv = null) {
+    super(data, gameEnv);
+}
+```
 
 Method overriding happens when a child class replaces a method from a parent class with its own custom version.
 
