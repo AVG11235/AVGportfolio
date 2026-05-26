@@ -39,11 +39,224 @@ and in many more places, I'd be suprised if you made a game with 1 or no classes
   <img src="{{site.baseurl}}/images/final-images/bullet-class-end.png" alt="Image 3">
 </div>
 
+``` js
+
+class Bullet {
+    constructor(data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.velocity = data.velocity || { x: 0, y: 0 };
+        this.gameEnv = data.gameEnv;
+        this.shooter = data.shooter;
+        this.direction = data.direction || 'down'; // down, left, right, up
+        this.width = 40;
+        this.height = 40;
+        this.lifetime = 10000; // 10 seconds
+        this.creationTime = Date.now();
+        this.destroyed = false;
+        this.isVisible = true;
+        this.frameIndex = 0;
+        this.frameCounter = 0;
+        this.animationRate = 3;
+    }
+
+    update() {
+        // Move the bullet continuously in its direction
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+
+        // Check lifetime (10 seconds)
+        if (Date.now() - this.creationTime > this.lifetime) {
+            this.destroy();
+            return;
+        }
+    }
+
+    draw() {
+        if (this.destroyed) return;
+        
+        // Always show yellow cube
+        this.gameEnv.ctx.fillStyle = 'yellow';
+        this.gameEnv.ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    checkCollision(target) {
+        if (this.destroyed || !target) return false;
+
+        return this.x < target.x + target.width &&
+               this.x + this.width > target.x &&
+               this.y < target.y + target.height &&
+               this.y + this.height > target.y;
+    }
+
+    destroy() {
+        if (!this.destroyed) {
+            this.destroyed = true;
+            // Don't remove from gameObjects - just mark as destroyed
+            // This allows bullets to be cleaned up naturally by the game
+        }
+    }
+}
+
+export default Bullet;
+```
+
+what this code has 
+
+> Class Declaration
+
+``` js
+class Bullet
+```
+means this creates a blueprint for "bullet". If this were a player class, it could be used to make player objects
+
+> Constructor
+
+``` js
+    constructor(data) {
+```
+
+The constructor runs automatically when a new object is created.
+
+It sets up the bullet's starting data.
+
+> "this"
+
+``` js
+        this.x = data.x;
+        this.y = data.y;
+        this.velocity = data.velocity || { x: 0, y: 0 };
+        this.gameEnv = data.gameEnv;
+        this.shooter = data.shooter;
+        this.direction = data.direction || 'down'; // down, left, right, up
+        this.width = 40;
+        this.height = 40;
+        this.lifetime = 10000; // 10 seconds
+        this.creationTime = Date.now();
+        this.destroyed = false;
+        this.isVisible = true;
+        this.frameIndex = 0;
+        this.frameCounter = 0;
+        this.animationRate = 3;
+    }
+```
+
+this stores values inside the current object.
+
+Each bullet object gets its own: x (data), y (data), velocity (x,y axis), gameEnv, shooter, direction, width, height, lifetime, creationTime, destroyed (t/f statement), isVisible (t/f statement), frameIndex, frameCounter, animation Rate.
+
+
+> shoot function in shooterplayer.js
+
+``` js
+    shoot() {
+        const currentTime = Date.now();
+        if (currentTime - this.lastShotTime < this.shootCooldown) return;
+
+        this.lastShotTime = currentTime;
+
+        // Create bullet data based on facing direction
+        let velocity = { x: 0, y: 0 };
+        switch (this.facing) {
+            case 'up': velocity.y = -6; break;
+            case 'down': velocity.y = 6; break;
+            case 'left': velocity.x = -6; break;
+            case 'right': velocity.x = 6; break;
+        }
+
+        const bulletData = {
+            x: this.position.x + this.width / 2 - 20,
+            y: this.position.y + this.height / 2 - 20,
+            velocity: velocity,
+            gameEnv: this.gameEnv,
+            shooter: this,
+            direction: this.facing
+        };
+
+        const bullet = new Bullet(bulletData);
+        this.bullets.push(bullet);
+        this.gameEnv.gameObjects.push(bullet);
+        console.log('Bullet spawned at', this.position.x, this.position.y, 'facing', this.facing);
+    }
+```
+
+> Creating an Object From the Class
+
+``` js 
+        const bullet = new Bullet(bulletData);
+```
+
+this creates a new bullet object
+
+> Using the Object
+
+Input:
+
+``` js
+        this.bullets.forEach(bullet => bullet.destroy());
+
+```
+
+Output:
+
+``` js
+        // Clean up bullets when player is destroyed
+
+```
+
+Input:
+
+``` js
+        this.bullets = this.bullets.filter(bullet => {
+
+```
+
+Output:
+
+``` js
+        // Remove destroyed bullets
+
+```
+
+Input:
+
+``` js
+        const bullet = new Bullet(bulletData);
+        this.bullets.push(bullet);
+        this.gameEnv.gameObjects.push(bullet);
+```
+
+Output:
+
+``` js
+        console.log('Bullet spawned at', this.position.x, this.position.y, 'facing', this.facing);
+
+```
+
+> Explanation all together:
+
+A class is a blueprint used to create objects. In this example, the Player class stores player data like name and health and includes methods that allow the player to move and take damage. The constructor initializes the object, while this stores values that belong to each specific player object.
+
+
 <a id="meth"></a>
 
 ## <font color="blue"> Methods & Parameters </font>
 
-Methods and Parameters covers stuff like handlers and although there are uses of "handle"'s in level3.js, the only 2 times "handler" appears in my custom code (it may also be in player.js) is in the variant version I made of Npc.js called enpeecee.js which has slightly different styles of functions while keeping the original Npc.js available for other use, here they are, one for he destroy function, and the other for clean up work!
+> Methods
+
+Methods are actions the object can perform.
+
+This class has: update(), draw(), destroy(), checkCollision(target).
+
+> Parameters
+
+``` js
+    checkCollision(target) {
+```
+
+"target" is a parameter passed into the method.
+
+Methods and Parameters covers stuff like handlers too, and although there are uses of "handle"'s in level3.js, the only 2 times "handler" appears in my custom code (it may also be in player.js) is in the variant version I made of Npc.js called enpeecee.js which has slightly different styles of functions while keeping the original Npc.js available for other use, here they are, one for he destroy function, and the other for clean up work!
 
  <div class="image-gallery">
   <img src="{{site.baseurl}}/images/final-images/enpeecee-handler.png" alt="Image 4">
@@ -147,6 +360,14 @@ For this segment Instantiation and objects covers how gamelevel's in the game en
 
 ## <font color="green"> Inheritance (basic) </font>
 
+Files in the same folder can inherit things from one another using objects (key words) and IMPORTING data from other files to use in something new like EXTENDING from an object to a character to a player or an enemy.
+
+Player class:
+``` js
+class Player extends Character
+```
+inherits from Character.
+
 This one's a classic, the heirarchy system of classes using phrases like "extends" it's when a file of code is reused specified, and improved across multiple new creations of code like character.js being extend to make player.js or enemy.js, and those files extend to become shooterplayer.js and wolf.js, making grand new creations while baseing code off previous more general work, even character.js is an expansion of GameObject.js, increaseing efficiency and customization, without starting fresh every time and to produce checkpoints or landmarks of to take notes of or as an acheivement. this can be seen below: 
 
 <div class="image-gallery">
@@ -159,6 +380,48 @@ This one's a classic, the heirarchy system of classes using phrases like "extend
 <a id="method"></a>
 
 ## <font color="gray"> Method Overriding </font>
+
+Method overriding happens when a child class replaces a method from a parent class with its own custom version.
+
+>This is important in games because different objects may need different behaviors even if they share the same base structure.
+
+Example: Character.js: 
+``` js
+update() {
+    super.update();
+
+    if(!this.moved){
+        if (this.gravity) {
+            this.time += 1;
+            this.velocity.y += 0.5 + this.acceleration * this.time;
+        }
+    }
+    else{
+        this.time = 0;
+    }
+}
+```
+Player.js
+``` js
+update() {
+    this.draw();
+    this.collisionChecks();
+    this.move();
+}
+```
+
+>Not completely replacing the parent behavior.
+
+I also use:
+``` js
+super.update();
+```
+This means:
+
+“Run the original Character update first, THEN add custom Player behavior.”
+
+That is advanced OOP usage and very good rubric evidence.
+
 
 Method Overriding includes "update", "draw", and "handlecollision" as they're parent methods in its work.
 
