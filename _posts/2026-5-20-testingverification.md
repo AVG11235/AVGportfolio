@@ -179,6 +179,14 @@ Even if fetch succeeds, the server may still fail.
 
 Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
 
+> super is used in a child class to access things from the parent class.
+
+``` js
+constructor(data = null, gameEnv = null) {
+    super(data, gameEnv);
+}
+```
+
 > ++ means increase the value by 1.
 
 > forEach is a method used to go through every item in an array one at a time.
