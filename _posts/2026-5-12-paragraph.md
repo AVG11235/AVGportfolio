@@ -498,9 +498,7 @@ basically using super() to chain constructors like:
   <img src="{{site.baseurl}}/images/final-images/super-player.png" alt="Image 20">
 </div>
 
-## Super notes (temp.)
-
-Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
+## Super notes
 
 > super is used in a child class to access things from the parent class.
 

@@ -833,6 +833,7 @@ simply speaking: you inspect with right click, go to the elements tab, press the
   <img src="{{site.baseurl}}/images/final-images/elemgame.png" alt="Image 35">
 </div>
 
+Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
 
 <br>
 
