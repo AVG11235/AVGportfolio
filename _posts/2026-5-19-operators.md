@@ -33,6 +33,8 @@ level3.js: update: const wolfbox (there are more examples but I wanted this to b
         };
 ```
 
++ is addition, * is multiplication, combines object properties and math.
+
 <a id="stop"> </a>
 
 ## <font color="indigo"> String Operations </font>
@@ -41,90 +43,66 @@ main representations of string operations are path concatenation which is connec
 
 const path
 ``` js
- const enemyData = {
-            id: 'Wolf',
-            greeting: "The Wolf!",
             src: path + "/images/gamify/ridinghood/wolfff.png",
-            SCALE_FACTOR: wolfScale,
-            STEP_FACTOR: 1000,
-            ANIMATION_RATE: 50,
-            // Positioned in the bottom-left corner
-            INIT_POSITION: { x: 150, y: 400 }, 
-            pixels: wolfPixels,
-            orientation: { rows: 1, columns: 1 },
-            down: { row: 0, start: 0, columns: 1 },
-            // Smaller hitbox than the sprite (85% of actual size)
-            collisionWidth: wolfPixels.width * wolfScale * 0.85,
-            collisionHeight: wolfPixels.height * wolfScale * 0.85,
-            hitbox: { widthPercentage: 0.85, heightPercentage: 0.85 },
-            hp: 5 // Give the wolf some health points to make the fight last a bit longer
-        };
-
 ```
-link imports:
+
+>well because we use + to combine strings together which is string concatenation, doing:
+
+If:
 ``` js
-// level3.js - Red Riding Hood Level 3: The Confrontation
-import GameEnvBackground from '../essentials/GameEnvBackground.js';
-import ShooterPlayer from './ShooterPlayer.js';
-import Enemy from './Enemy.js';
-import HitMarker from './HitMarker.js';
-import Explosion from './Explosion.js';
-import Npc from './enpeecee.js';
+path = "/game"
 ```
-message:
+Then:
 ``` js
-   showGrandmaVictory() {
-        const message = document.createElement('div');
-        message.id = 'victory-popup';
-        message.style.position = 'absolute';
-        message.style.top = '40%';
-        message.style.left = '50%';
-        message.style.transform = 'translate(-50%, -50%)';
-        message.style.background = 'rgba(255, 225, 159, 0.95)';
-        message.style.border = '4px solid #b00';
-        message.style.padding = '32px';
-        message.style.borderRadius = '16px';
-        message.style.fontSize = '1.5em';
-        message.style.textAlign = 'center';
-        message.style.zIndex = 1000;
-        message.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
-        
-        message.innerHTML = `
-            <h2 style="color:white; margin-top:0;">Victory!</h2>
-            <p style="color:#b00 !important;">Good job my girl! These old wolfies have gone rampant this season. Now you said you have some cookies?<br><br></p>
-            <button onclick="location.reload()" style="padding:12px 24px; font-size:18px; cursor:pointer; background:#b00; color:white; border:none; border-radius:8px; font-weight:bold;">Play Again</button>
-        `;
-        document.body.appendChild(message);
-    }
+path + "/images/gamify/ridinghood/wolfff.png"
 ```
-W template for string operations
+becomes:
 ``` js
-// 1. Path Concatenation (Old way)
-const folder = "users";
-const file = "photo.png";
-const path = "/" + folder + "/" + file; 
-
-// 2. Template Literals (Modern/Review choice)
-// Use backticks (`) and ${} for cleaner pathing and text display
-const templatePath = `/${folder}/${file}`;
-
-// 3. Text Display (Multi-line)
-const display = `
-  <div>
-    <h1>File: ${file}</h1>
-    <p>Path: ${templatePath}</p>
-  </div>
-`;
-
-console.log(templatePath); /
+/game/images/gamify/ridinghood/wolfff.png
 ```
+This dynamically builds the image file path.
 
+Template Literal Example
+
+>This is ALSO excellent:
+
+``` js
+message.innerHTML = `
+```
+This uses:
+
+template literals
+
+with:
+``` js
+`
+```
+(backticks)
+
+Why Template Literals Matter
+
+They allow:
+
+multi-line strings
+embedded variables
+cleaner HTML generation
+Your UI Message Example
+``` js
+<h2 style="color:white; margin-top:0;">Victory!</h2>
+```
+This dynamically creates:
+
+UI text
+HTML content
+gameplay messages
+
+Very strong real-world string usage.
 
 <a id="booex"> </a>
 
-## <font color="red"> Boolean Expansions </font>
+## <font color="red"> Boolean expressions </font>
 
-Boolean expansions are compounded expansions of game logic using && || ! 
+Boolean expressions are compounded expressions of game logic using && || ! 
 examples of them in my game look like 
 
 handleGrandmaClick funtion:
@@ -165,6 +143,11 @@ handleGrandmaClick funtion:
         }
     }
 ```
+
+Boolean expressions are:
+
+conditions that evaluate to either true or false
+
 <style>
 .btn-inputoutput { background-color: rgba(122, 221, 191, 1) !important; color: white !important; }
 .btn-inputoutput:hover { background-color: rgba(0, 255, 179, 1) !important; }

@@ -59,7 +59,13 @@ Something simple the coverage of key inputs in code connecting mechanics in game
         this.time = 0;
         this.moved = false;
 ```
-> PART 2
+> PART 
+
+Keyboard input is:
+
+detecting and responding to keys pressed by the player.
+
+ideal example using event listeners, real-time player input, input system architecture, dynamic gameplay control:
 ```
     bindMovementKeyListners() {
         addEventListener('keydown', this.handleKeyDown.bind(this));
@@ -91,6 +97,19 @@ Something simple the coverage of key inputs in code connecting mechanics in game
         this.updateDirection();
     }
 ```
+
+>handle usually means:
+
+“manage,” “respond to,” or “deal with” something that happened.
+
+It is commonly used in:
+
+event systems
+input systems
+collisions
+UI interactions
+errors
+
 shooterplayer code involves a q key input
 
 ```
@@ -120,9 +139,61 @@ Canvas Rendering is about the update cycle updating animation frames and cycles 
     }
 ```
 
+What Each Part Does
+1. ctx
+this.gameEnv.ctx
+
+ctx means:
+
+canvas rendering context
+
+It gives access to drawing commands.
+
+2. fillStyle
+this.gameEnv.ctx.fillStyle = 'yellow';
+
+Sets:
+
+the drawing color.
+
+3. fillRect()
+fillRect(x, y, width, height)
+
+draws:
+
+a filled rectangle on the canvas.
+
+4. Positioning
+this.x
+this.y
+
+control:
+
+where the object appears.
+
+5. Sizing
+this.width
+this.height
+
+control:
+
+object dimensions.
+
+6. Conditional Rendering
+if (this.destroyed) return;
+
+prevents destroyed objects from rendering.
+
+This is actually a nice bonus because it demonstrates:
+
+rendering control
+object lifecycle logic
+
 <a id="gam"> </a>
 
 ## <font color="yellow"> GameEnv Configuration </font>
+
+
 
 This section represents customization in game like the screen, controls, difficulties etc. which can be seen here as (changing screen size/ window while still functioning) :
 
@@ -163,6 +234,38 @@ class GameLevel {
     window.addEventListener("resize", this.resize.bind(this))
   }
 ```
+
+>Dynamic Level Configuration
+``` js
+this.gameLevel = new GameLevelClass(this.gameEnv)
+```
+because:
+
+levels receive the environment
+runtime settings are shared
+game systems become configurable
+
+>Game Object Registration
+``` js
+this.gameEnv.gameObjects.push(gameObject)
+```
+because it dynamically configures:
+
+active game objects
+runtime entities
+gameplay systems
+
+>Resize Configuration
+
+This is one of your BEST lines:
+``` js
+window.addEventListener("resize", this.resize.bind(this))
+```
+because it demonstrates:
+
+responsive resizing
+dynamic screen configuration
+adaptive environment management
 
 <a id="api"> </a>
 
@@ -420,12 +523,56 @@ basically focuses on the leaderboard system and scores seen in level 1 (and 4) u
 
         });
 ```
+``` js
+        fetch(
+            url,
+            {
+                ...fetchOptions,
+                method: 'POST',
+                body: JSON.stringify(requestBody)
+            }
+        )
+```
+Great example of API integration due to it showing: communicates with backend API, sends POST requests, uses JSON payloads, includes configuration options, uses fetch API, real client-server interaction.
 
 <a id="asio"> </a>
 
 ## <font color="green"> Asynchronous I/O </font>
 
-this allows for multitasking on API calls which prevents freezes because of the server waits as it all doesn't run on the main thread which runs most of the in action game assets. It looks like this (using .then()): (in level1.js update function)
+this allows for multitasking on API calls which prevents freezes because of the server waits as it all doesn't run on the main thread which runs most of the in action game assets. It looks like this (using .then()): (in level1.js update function) Asynchronous I/O means:
+the program can communicate with external systems like APIs or servers without freezing the game while waiting for a response.
+Instead of stopping the game completely:the request runs in the background, gameplay can continue, the code waits for the result later
+This is critical in: APIs, multiplayer systems, leaderboards, databases, AI systems, file loading
+
+``` js
+static async testAPI() {
+```
+async creates an asynchronous function
+allows waiting for backend responses
+prevents blocking game execution
+
+``` js
+const response = await fetch(pythonURI + '/api/ainpc/test', {
+```
+waits for backend response asynchronously
+performs network I/O
+communicates with external API
+non-blocking execution
+
+``` js
+const data = await response.json();
+```
+asynchronous JSON parsing
+waits for server data conversion
+backend response handling
+
+``` js
+await fetch(pythonURI + '/api/ainpc/reset', {
+```
+asynchronous POST requests
+backend session management
+remote communication
+
 
 ``` javascript
     static async testAPI() {
@@ -533,6 +680,7 @@ this allows for multitasking on API calls which prevents freezes because of the 
 
 Identified with Json.parse(), it parses API responses to make it readable to json as before it's as complex as bytes of code! not even sm64 uses that this is all about AI responses like in an NPC and leaderboards which are both in level1.js seen in leaderboard.js:
 
+
 ``` javascript
   addElementaryScore() {
         console.log('=== ADD ELEMENTARY SCORE ===');
@@ -569,8 +717,82 @@ Identified with Json.parse(), it parses API responses to make it readable to jso
             return;
         }
 ```
+Key part:
+``` js
+const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
+```
+>Explanation: JSON parsing means:
+converting JSON text into usable JavaScript objects or arrays.
+APIs and localStorage usually store data as plain text strings.
+JSON.parse() converts that text into real JavaScript data structures.
 
+This line:
+``` js
+localStorage.getItem(storageKey)
+```
+retrieves stored data from browser storage.
+BUT:
+localStorage stores data as a STRING
+not as usable JavaScript objects
+Example stored value:
+``` js
+'[{"user":"Mateo","score":50}]'
+```
+That is JSON text.
+The Parsing Step
+This line:
+``` js
+JSON.parse(...)
+```
+converts:
+FROM:
+``` js
+'[{"user":"Mateo","score":50}]'
+```
+TO:
+``` js
+[
+  { user: "Mateo", score: 50 }
+]
+```
+Now JavaScript can:
+loop through it
+modify it
+push new data
+display it
+Why || '[]' Matters
+This part:
+``` js
+|| '[]'
+```
+is a fallback.
+Meaning:
+if no leaderboard exists yet
+use an empty JSON array instead
+Without it:
+JSON.parse(null) could fail
+So this improves stability.
 
+toISOString() is a JavaScript method that converts a date into a standardized string format.
+
+Example:
+
+const date = new Date();
+console.log(date.toISOString());
+
+Possible output:
+
+2026-05-27T21:43:15.123Z
+What Each Part Means
+2026-05-27T21:43:15.123Z
+Part	Meaning
+2026	Year
+05	Month
+27	Day
+T	Separates date and time
+21:43:15	Time (hours:minutes:seconds)
+.123	Milliseconds
+Z   UTC timezone "Zulu time"
 
 <style>
 .btn-documentation { background-color: #98ff22ff !important; color: white !important; }

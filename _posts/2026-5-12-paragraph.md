@@ -498,6 +498,31 @@ basically using super() to chain constructors like:
   <img src="{{site.baseurl}}/images/final-images/super-player.png" alt="Image 20">
 </div>
 
+## Super notes (temp.)
+
+Element inspection was performed using Chrome DevTools’ Elements tab to inspect canvas objects, UI components, and CSS styles during gameplay. This allowed debugging of positioning, scaling, visibility, layering, and dynamically generated game elements by examining DOM structure and live style properties.
+
+> super is used in a child class to access things from the parent class.
+
+``` js
+constructor(data = null, gameEnv = null) {
+    super(data, gameEnv);
+}
+```
+
+> ++ means increase the value by 1.
+
+> forEach is a method used to go through every item in an array one at a time.
+
+> catch is used for handling errors in code. It works with try. Basic structure:
+``` js
+try {
+    // code that might fail
+} catch (error) {
+    // code that runs if there is an error
+}
+``` 
+
 <style>
 .btn-controlstructures { background-color: #100977ff !important; color: white !important; }
 .btn-controlstructures:hover { background-color: #461ff3ff !important; }
