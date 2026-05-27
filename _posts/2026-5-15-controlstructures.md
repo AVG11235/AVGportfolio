@@ -24,7 +24,7 @@ the objectives we will cover in this category are
 
 ### <font color="green">  Iteration </font>
 
-Iteration covers loops in the code like animation which can be seen in this character code: 
+Iteration covers loops in the code like animation which can not really be seen in this character animation code but is an iteration: 
 
 ``` js
     /**
@@ -39,6 +39,18 @@ Iteration covers loops in the code like animation which can be seen in this char
         }
     } 
 ```
+
+
+>Main Types of Iteration
+Type	Purpose
+for loop	Repeat a set number of times
+while loop	Repeat while a condition is true
+forEach()	Iterate through arrays
+Game loop iteration	Repeated frame updates
+Animation iteration	Cycling sprite frames
+
+>the key aspects are: "while" "for" "let", and the ones used in this example are: for animation iteration, "this.frameCounter++" This increments the animation counter every update cycle. The value changes repeatedly over time. "if (this.frameCounter % this.animationRate === 0)" This checks whether enough iterations have passed to update the animation frame. The % operator is used to slow animation speed. "this.frameIndex = (this.frameIndex + 1) % frames;" This repeatedly cycles through animation frames. Example: 0 → 1 → 2 → 3 → 0 → 1 → 2 That looping frame progression is iterative animation logic. 
+“iteration only means loops like for or while.” is falso, in games, iteration also includes: repeated frame updates, repeated animation cycles, repeated collision checks, repeated movement calculations this method is part of the iterative game loop.
 
 <a id="con"> </a>
 
@@ -66,11 +78,36 @@ collisionChecks() {
         }
     }
 ```
+
+this example includes many subjects in it but we will just use it for conditionals for now the key aspects are: A conditional is code that: makes decisions based on whether something is true or false. Usually using: "if", "else", "else if" and if is pretty visible in this as it checks for IF collisions occured
+
 <a id="nest"> </a>
 
 ### <font color="green"> Nested Conditions </font>
 
 nested conditions are multiple levels of conditionals to produce complex game logic which I believe is best represented in the bullets and what they do, they deal damage, dissapear on contact, dissappear off screen, move have collision, spawn from a q key press, and could use a texture. Their code is this: (bullet.js, update and shoot function)
+
+Nested conditions happen when:
+
+a conditional exists INSIDE another conditional.
+
+Example:
+
+if (playerAlive) {
+
+    if (enemyNearby) {
+        attack();
+    }
+
+}
+
+``` js
+            if (gameObj.canvas && this != gameObj) {
+                this.isCollision(gameObj);
+                if (this.collisionData.hit) {
+```
+
+This if, else if code in my old bullet example shows more sequential conditions & chained conditional logic
 
 ``` js
     update() {
@@ -128,6 +165,9 @@ nested conditions are multiple levels of conditionals to produce complex game lo
         console.log('Bullet spawned at', this.position.x, this.position.y, 'facing', this.facing);
     }
 ```
+
+nested conditions are multiple levels of conditionals to produce complex game logic which I believe is best represented in the bullets and what they do, they deal damage, dissapear on contact, dissappear off screen, move have collision, spawn from a q key press, and could use a texture. Their code is this: (bullet.js, update and shoot function)
+
 <style>
 .btn-datatypes { background-color: #881010ff !important; color: white !important; }
 .btn-datatypes:hover { background-color: #bb2e2eff !important; }

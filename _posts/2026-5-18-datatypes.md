@@ -276,9 +276,17 @@ class Player extends Character {
 
 ## <font color="orange"> Strings </font>
 
-examples of strings are Character names, sprite paths, game states as seen in:
+A string is:
 
-grandma enpeecee code in level3.js: 
+text data stored in code.
+
+Strings are written using:
+
+'single quotes'
+"double quotes"
+`template literals`
+
+grandma enpeecee code in level3.js example: 
 ``` js
   const grandmaData = {
             id: 'Grandma',
@@ -307,6 +315,12 @@ grandma enpeecee code in level3.js:
             }.bind(this)
         };
 ```
+``` js
+                    if (this.enemyDefeated) {
+                        this.grandma.dialogueSystem.dialogues = ["Now, that's the girl I partially raised!!!"];
+                    } else {
+                        this.grandma.dialogueSystem.dialogues = ["WHAT ARE YOU STANDING AROUND FOR? GO KILL that WOLF that barged into MY HOUSE! WITH THE RIFLE I so courageusly gave to you dear-y <3"];
+```
 
 (grandma represents id, sprite, and state change between an elimated enemy wolf and non eliminated enemy wolf also known as winning)
 
@@ -314,7 +328,9 @@ grandma enpeecee code in level3.js:
 
 ## <font color="violet"> Booleans </font>
 
-Booleans covers boolean logic like flags for stuff like player states (like maybe a cooldown in my case), which for me can be seen in , as seen below:
+Booleans covers boolean logic like flags for stuff like player states, which for me can be seen in , as seen below:
+
+A boolean is a data type that can only have TWO values:
 
 bullet.js constructor code:
 ``` js
@@ -337,87 +353,21 @@ class Bullet {
         this.animationRate = 3;
     }
 ```
-level3.js const code:
 ``` js
-        const sprite_src_red = path + "/images/gamify/Finalred.png";
-        const sprite_data_red = {
-            id: 'RedRidingHood',
-            greeting: "Red Riding Hood - Press Q to shoot!",
-            src: path + "/images/gamify/Finalred.png",
-            SCALE_FACTOR: 6,
-            STEP_FACTOR: 800,
-            ANIMATION_RATE: 50,
-            INIT_POSITION: { x: width / 2 - 50, y: height - 100 },
-            pixels: { height: 144, width: 192 },
-            orientation: { rows: 3, columns: 4 },
-            down: { row: 0, start: 0, columns: 3 },
-            left: { row: 1, start: 0, columns: 3 },
-            right: { row: 2, start: 0, columns: 3 },
-            up: { row: 3, start: 0, columns: 3 },
-            hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
-            keypress: { up: 87, left: 65, down: 83, right: 68 },
-            shootCooldown: 500
-        };
-```
-shooterplayer.js cooldown code:
-``` js
-class ShooterPlayer extends Player {
-    constructor(data, gameEnv) {
-        super(data, gameEnv); // Calls the original Player constructor
-        this.bullets = [];
-        this.shootCooldown = data.shootCooldown || 500; // milliseconds between shots
-        this.lastShotTime = 0;
-        this.facing = 'up'; // Default facing direction
-    }
-
-    update() {
-        super.update(); // Keep the top-down movement logic
-
-        // Update facing direction based on movement
-        if (this.velocity.x > 0) this.facing = 'right';
-        else if (this.velocity.x < 0) this.facing = 'left';
-        else if (this.velocity.y > 0) this.facing = 'down';
-        else if (this.velocity.y < 0) this.facing = 'up';
-
-        // Fix diagonal movement animation issue by ensuring direction matches sprite data
-        // Map diagonal directions to their base directions for proper animation
-        if (this.direction === 'upLeft') this.direction = 'left';
-        else if (this.direction === 'upRight') this.direction = 'right';
-        else if (this.direction === 'downLeft') this.direction = 'left';
-        else if (this.direction === 'downRight') this.direction = 'right';
-
-        // Check for Q key press to shoot
-        if (this.pressedKeys[81]) { // Q key
-            this.shoot();
-        }
-
-        // Update bullets
-        this.updateBullets();
-    }
-
-    shoot() {
-        const currentTime = Date.now();
-        if (currentTime - this.lastShotTime < this.shootCooldown) return;
-
-        this.lastShotTime = currentTime;
-
-        // Create bullet data based on facing direction
-        let velocity = { x: 0, y: 0 };
-        switch (this.facing) {
-            case 'up': velocity.y = -6; break;
-            case 'down': velocity.y = 6; break;
-            case 'left': velocity.x = -6; break;
-            case 'right': velocity.x = 6; break;
-        }
-
+       this.destroyed = false;
+        this.isVisible = true;
 ```
 
 <a id="arr"> </a>
 
 ### <font color="red"> Arrays </font>
 
-arrays represent collections of "memory" usong brackets [], which I see here
-
+arrays represent collections of "memory" usong brackets [], a collection of multiple values stored in a single variable. Which I see here:
+it's more like 
+``` js
+[poop, pee, food]
+```
+a "collection" of "multiple" values, but the dialogue options work
 level3.js grandma dialogue code:
 ``` js
             interactionRadius: 400, // Interaction area (now half the previous size)
@@ -482,6 +432,12 @@ Object Literals are JavaScript code. Keys do not require quotes (unless they con
 Classic using {} and making a list of categories and values which can be seen below:
 
 (used first half of level3.js const grandma code)
+
+An object is:
+a collection of related properties and values grouped together.
+
+id: 'Grandma' is a key value pair 
+const grandmaData = { is the example where the grandmaData object is created
 
 ``` js
 const grandmaData = {
