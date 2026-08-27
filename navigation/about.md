@@ -169,7 +169,7 @@ I have had a neat life, doing many things like yo- jk.
 
 
 <comment>
-Gallery of my Pad Pics (be sure to scroll to the right for more ...)
+Gallery of my Pad Pics (scroll right for more ...)
 </comment>
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/pics/IMG_0064.jpg" alt="Image 1">

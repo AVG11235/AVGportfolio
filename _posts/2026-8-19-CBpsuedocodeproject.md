@@ -1,0 +1,1 @@
+on team portfolio, not avg portfolio
