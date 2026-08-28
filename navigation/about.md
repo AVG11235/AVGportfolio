@@ -102,10 +102,10 @@ Flags are made using Wikipedia images
 Here's what I've done
 
 - Become born
-- Graduated Oak Valley
-- Made a number of now vanishified friends (where'd they go?!)
+- Graduated Oak Valley with a signature by Donald Trump
+- Made a number of friends #quanityoverquality (jk btw jeez louis there's so many) 
 - Grown up and now into HS
-- have cried like 6 to 8 times in the last 3 years
+- have cried like 6 to 8 times in the last 4 years
 - Learned many talents
 - Produced much content and more to come
 - I can ride a bike 
@@ -114,11 +114,11 @@ Here's what I've done
 
 I have had a neat life, doing many things like yo- jk.
 
-- I've grown to the point of 15 year old, and had like 15 haircuts or something
-- My fam, hmm, well my fam's pretty lit. ok not really, I have a simple family of 4 as the youngest, and many cousins that on 50% of holidays, My family goes to my favorite cousins place in utah, the Wilsons.
-- Up next we have many family ipad pics which held some retro memories that I'm not showing all of them.
+- I've grown to the point of 16 year old, and had like 16 haircuts or something
+- My fam, hmm, well my fam's pretty lit. ok not really, I have a simple family of 4 as the youngest, and many cousins that on 50% of holidays, My family goes to my favorite cousins place in utah, the Wilsons, recently I've seen a lot of my cousin Carlota, and she's become pretty alright now, so that's a nice suprise.
+- Up next we have many facial pics which are taken on my new and first phone.
 
-### HAPPY NEW YEAR!
+### HAPPY HALLOWEEN !!!
 <div class="grid-container" id="newyears_container">
     <!-- content will be added here by JavaScript -->
 </div>
@@ -129,10 +129,10 @@ I have had a neat life, doing many things like yo- jk.
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "thumb/d/d0/Happy_new_year.jpg/640px-Happy_new_year.jpg", "greeting": "Feliz, estamos Feliz", "description": "Por un ano nuevo"},
-        {"flag": "thumb/7/73/Season%27s_Greetings_A_Happy_New_Year%21_%28eso0653c%29.tiff/lossy-page1-640px-Season%27s_Greetings_A_Happy_New_Year%21_%28eso0653c%29.tiff.jpg", "greeting": "Galaxial omg", "description": "A new year happenned in here, it seemed kinda small though"},
-        {"flag": "thumb/4/4a/Happy_New_Year_2022%21.gif/640px-Happy_New_Year_2022%21.gif", "greeting": "Christmas is done", "description": "It was great like our NEW YEAR!!!!!"},
-        {"flag": "thumb/9/97/Happy_new_year_rnd.svg/640px-Happy_new_year_rnd.svg.png", "greeting": "Ah yes the color of 2026", "description": "HAVE THE HAPPIEST NEW YEAR OF ALL THYME CHAT"},
+        {"flag": "2/28/FileSpooky_reflection_of_the_South_Portico_decorated_for_Halloween%2C_Monday%2C_October_30%2C_2023%2C_at_the_White_House.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", "greeting": "My Family loves checking out all the houses that the owners put 110% effort into decorating", "description": "One person in a culdesac near us really goes crazy for halloween AND christmas"},
+        {"flag": "9/9a/Pyrkon_2022_-_Among_Us_cosplay.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", "greeting": "I went as this a couple times", "description": "my mother the worst (best) instagram post of all time about it"},
+        {"flag": "1/13/Jack-o-lantern_pumpkins.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", "greeting": "Halloween is soon", "description": "It will be great like our NEW YEAR!!!!!"},
+        {"flag": "c/c3/Schriever_celebrates_Halloween_%284861702%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", "greeting": "The Candy collection at the end of all my halloweens were always crazy", "description": "And the preservation saga afterwards... oof"},
     ];
 
     // 3a. Consider how to update style count for size of container
@@ -169,18 +169,16 @@ I have had a neat life, doing many things like yo- jk.
 
 
 <comment>
-Gallery of my Pad Pics (scroll right for more ... I believe the photo FILES have been deleted from the directory during a portfolio update)
+Gallery of my Facial compilation Pics (scroll right for more)
 </comment>
 <div class="image-gallery">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_0064.jpg" alt="Image 1">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_1770.jpg" alt="Image 2">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_2052.png" alt="Image 3">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_2060.png" alt="Image 4">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_2246.png" alt="Image 5">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_2497.png" alt="Image 6">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_2839.png" alt="Image 7">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_3054.png" alt="Image 8">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_4871.png" alt="Image 9">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_4907.png" alt="Image 10">
-  <img src="{{site.baseurl}}/images/about/pics/IMG_8586.png" alt="Image 11">
+  <img src="{{site.baseurl}}/images/about/pics/tomatoy.png" alt="Image 1">
+  <img src="{{site.baseurl}}/images/about/pics/aww.jpeg" alt="Image 2">
+  <img src="{{site.baseurl}}/images/about/pics/AH.png" alt="Image 3">
+  <img src="{{site.baseurl}}/images/about/pics/oop.png" alt="Image 4">
+  <img src="{{site.baseurl}}/images/about/pics/speed.png" alt="Image 5">
+  <img src="{{site.baseurl}}/images/about/pics/yawn.png" alt="Image 6">
+  <img src="{{site.baseurl}}/images/about/pics/SBROK.png" alt="Image 7">
+  <img src="{{site.baseurl}}/images/about/pics/smile.png" alt="Image 8">
+  <img src="{{site.baseurl}}/images/about/pics/Hat.png" alt="Image 9">
 </div>
