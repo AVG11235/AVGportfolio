@@ -118,7 +118,7 @@ I have had a neat life, doing many things like yo- jk.
 - My fam, hmm, well my fam's pretty lit. ok not really, I have a simple family of 4 as the youngest, and many cousins that on 50% of holidays, My family goes to my favorite cousins place in utah, the Wilsons, recently I've seen a lot of my cousin Carlota, and she's become pretty alright now, so that's a nice suprise.
 - Up next we have many facial pics which are taken on my new and first phone.
 
-### HAPPY HALLOWEEN !!!
+### HAPPY HALLOWEEN !!! JESUS LOVES YOU !!!
 <div class="grid-container" id="newyears_container">
     <!-- content will be added here by JavaScript -->
 </div>
